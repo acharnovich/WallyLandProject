@@ -5,6 +5,7 @@
 package View;
 
 import javax.swing.JButton;
+import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
 /**
@@ -34,6 +35,7 @@ public class NavigationView extends javax.swing.JFrame {
         schAttBtn = new javax.swing.JButton();
         orderBtn = new javax.swing.JButton();
         reserveBtn = new javax.swing.JButton();
+        mainPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,25 +45,62 @@ public class NavigationView extends javax.swing.JFrame {
         purchaseButton.setFocusable(false);
         purchaseButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         purchaseButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        purchaseButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                purchaseButtonActionPerformed(evt);
+            }
+        });
         jToolBar1.add(purchaseButton);
 
         schAttBtn.setText("Schedule Attractions");
         schAttBtn.setEnabled(false);
+        schAttBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                schAttBtnActionPerformed(evt);
+            }
+        });
         jToolBar1.add(schAttBtn);
 
         orderBtn.setText("Order Food");
         orderBtn.setEnabled(false);
+        orderBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderBtnActionPerformed(evt);
+            }
+        });
         jToolBar1.add(orderBtn);
 
         reserveBtn.setText("Reservations");
         reserveBtn.setEnabled(false);
+        reserveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reserveBtnActionPerformed(evt);
+            }
+        });
         jToolBar1.add(reserveBtn);
 
         getContentPane().add(jToolBar1, java.awt.BorderLayout.PAGE_START);
+        getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
 
         setSize(new java.awt.Dimension(1070, 628));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void purchaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchaseButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_purchaseButtonActionPerformed
+
+    private void schAttBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schAttBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_schAttBtnActionPerformed
+
+    private void orderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_orderBtnActionPerformed
+
+    private void reserveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reserveBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -100,6 +139,7 @@ public class NavigationView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JPanel mainPanel;
     private javax.swing.JButton orderBtn;
     private javax.swing.JButton purchaseButton;
     private javax.swing.JButton reserveBtn;
@@ -120,6 +160,14 @@ public class NavigationView extends javax.swing.JFrame {
 
     public void setSchAttBtn(JButton schAttBtn) {
         this.schAttBtn = schAttBtn;
+    }
+
+    public JPanel getMainPanel() {
+        return mainPanel;
+    }
+
+    public void setMainPanel(JPanel mainPanel) {
+        this.mainPanel = mainPanel;
     }
 
 

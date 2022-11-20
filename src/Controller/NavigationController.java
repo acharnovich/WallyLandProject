@@ -5,6 +5,7 @@
 package Controller;
 
 import Model.UserAccount;
+import View.AttractionView;
 import View.NavigationView;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
@@ -68,7 +69,21 @@ public class NavigationController {
             navView.getSchAttBtn().setEnabled(true);
             navView.getOrderBtn().setEnabled(true);
             navView.getReserveBtn().setEnabled(true);
-            //navView.getSchAttBtn().addActionListener(this);
+            navView.getSchAttBtn().addActionListener(                
+                    new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+             AttractionView att = new AttractionView();
+             
+             navView.remove(navView.getMainPanel());
+               navView.getContentPane().add(att);
+               navView.revalidate();
+               navView.setVisible(true);
+       
+                
+
+     }
+        });
             //navView.getOrderBtn().addActionListener(this);
             // navView.getReserveBtn().addActionListener(this);
         }

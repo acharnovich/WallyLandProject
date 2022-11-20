@@ -28,7 +28,7 @@ public AttractionsController()
 {
   this.attractionsModel = new AttractionsList();
   this.attractionsView = new AttractionView();
-  attractionsView.displayAttractionTest(attractionsModel.loadData());
+  //attractionsView.displayAttractionTest(attractionsModel.loadData());
      addAttractionScheduleClicked();
 
 /**
@@ -83,7 +83,7 @@ public void setCurrentCapacity(int n){
 public void addAttractionScheduleClicked(){
     UserActionController addToProfile = new UserActionController();
     addToProfile.addToScheduleClicked(4325345, "bobtest");
-    attractionsView.displayAddedToProfileTest("Test Attraction");
+   // attractionsView.displayAddedToProfileTest("Test Attraction");
 
 
 
