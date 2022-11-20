@@ -29,41 +29,39 @@ public class NavigationView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        purchaseButton = new javax.swing.JToggleButton();
+        jToolBar1 = new javax.swing.JToolBar();
+        purchaseButton = new javax.swing.JButton();
+        schAttBtn = new javax.swing.JButton();
         orderBtn = new javax.swing.JButton();
         reserveBtn = new javax.swing.JButton();
-        schAttBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jToolBar1.setFocusable(false);
 
         purchaseButton.setText("Purchase Tickets");
-        purchaseButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                purchaseButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(purchaseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, -1, -1));
-
-        orderBtn.setText("Order Food");
-        orderBtn.setEnabled(false);
-        getContentPane().add(orderBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 260, -1, -1));
-
-        reserveBtn.setText("Reservations");
-        reserveBtn.setEnabled(false);
-        getContentPane().add(reserveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 260, -1, -1));
+        purchaseButton.setFocusable(false);
+        purchaseButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        purchaseButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(purchaseButton);
 
         schAttBtn.setText("Schedule Attractions");
         schAttBtn.setEnabled(false);
-        getContentPane().add(schAttBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, -1, -1));
+        jToolBar1.add(schAttBtn);
+
+        orderBtn.setText("Order Food");
+        orderBtn.setEnabled(false);
+        jToolBar1.add(orderBtn);
+
+        reserveBtn.setText("Reservations");
+        reserveBtn.setEnabled(false);
+        jToolBar1.add(reserveBtn);
+
+        getContentPane().add(jToolBar1, java.awt.BorderLayout.PAGE_START);
 
         setSize(new java.awt.Dimension(1070, 628));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void purchaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchaseButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_purchaseButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -101,17 +99,18 @@ public class NavigationView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JButton orderBtn;
-    private javax.swing.JToggleButton purchaseButton;
+    private javax.swing.JButton purchaseButton;
     private javax.swing.JButton reserveBtn;
     private javax.swing.JButton schAttBtn;
     // End of variables declaration//GEN-END:variables
 
-    public JToggleButton getPurchaseButton() {
+    public JButton getPurchaseButton() {
         return purchaseButton;
     }
 
-    public void setPurchaseButton(JToggleButton purchaseButton) {
+    public void setPurchaseButton(JButton purchaseButton) {
         this.purchaseButton = purchaseButton;
     }
 
