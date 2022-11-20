@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="WallyLandProject">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/WallyLandProject.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
