@@ -64,6 +64,7 @@ public class Attraction {
         this.increaseCapacity(partySize);
         activeUser.addScheduledAttraction(this);
         String confirmation = ("You have added " + this.getName() + "to your schedule for a party of " + partySize + ".");
+                System.out.println("Also Adding this to check the git");
         return confirmation;
 
     }
