@@ -8,6 +8,7 @@ import Model.Attraction;
 import View.AttractionView;
 import java.util.ArrayList;
 import Model.AttractionsList;
+import View.NavigationView;
 import java.util.Scanner;
 
 /**
@@ -24,8 +25,13 @@ public class AttractionsController
 /**
  * This is the default constructor for AttractionsController.
  */
-public AttractionsController()
+public AttractionsController(NavigationView navView)
 {
+    AttractionView att = new AttractionView();
+                 navView.remove(navView.getMainPanel());
+               navView.getContentPane().add(att);
+               navView.revalidate();
+               navView.setVisible(true);
   this.attractionsModel = new AttractionsList();
   this.attractionsView = new AttractionView();
   //attractionsView.displayAttractionTest(attractionsModel.loadData());

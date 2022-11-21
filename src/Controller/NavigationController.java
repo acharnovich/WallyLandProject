@@ -73,12 +73,8 @@ public class NavigationController {
                     new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-             AttractionView att = new AttractionView();
+             AttractionsController att = new AttractionsController(navView);
              
-             navView.remove(navView.getMainPanel());
-               navView.getContentPane().add(att);
-               navView.revalidate();
-               navView.setVisible(true);
        
                 
 
