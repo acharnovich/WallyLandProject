@@ -45,7 +45,7 @@ public class AttractionView extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Name", "Decription", "Date", "Max Capacity"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
