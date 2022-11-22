@@ -27,13 +27,13 @@ public class AttractionsController
  */
 public AttractionsController(NavigationView navView)
 {
-    AttractionView att = new AttractionView();
+    AttractionView att = new AttractionView(attractionsModel.getAllAttractions());
                  navView.remove(navView.getMainPanel());
                navView.getContentPane().add(att);
                navView.revalidate();
                navView.setVisible(true);
   this.attractionsModel = new AttractionsList();
-  this.attractionsView = new AttractionView();
+
   
      addAttractionScheduleClicked();
 

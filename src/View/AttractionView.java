@@ -4,6 +4,8 @@
  */
 package View;
 
+import Model.Attraction;
+import java.util.ArrayList;
 import javax.swing.JButton;
 
 /**
@@ -15,10 +17,13 @@ public class AttractionView extends javax.swing.JPanel {
     /**
      * Creates new form AttractionView
      */
-    public AttractionView() {
+    public AttractionView(ArrayList<Attraction> attList) {
         initComponents();
+        populateTable(attList);
     }
-    
+    public void populateTable(ArrayList<Attraction> attList){
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,6 +43,14 @@ public class AttractionView extends javax.swing.JPanel {
         jButton1.setText("Schedule");
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 510, -1, -1));
 
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1"
+            }
+        ));
         jTable2.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jTable2);
 
