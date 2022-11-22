@@ -34,7 +34,7 @@ public AttractionsController(NavigationView navView)
                navView.setVisible(true);
   this.attractionsModel = new AttractionsList();
   this.attractionsView = new AttractionView();
-  //attractionsView.displayAttractionTest(attractionsModel.loadData());
+  
      addAttractionScheduleClicked();
 
 /**
