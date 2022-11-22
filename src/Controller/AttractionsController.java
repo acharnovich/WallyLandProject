@@ -19,7 +19,7 @@ import java.util.Scanner;
  */
 public class AttractionsController
 {
-  private AttractionsList attractionsModel;
+
   private AttractionView attractionsView;
 
 /**
@@ -27,12 +27,13 @@ public class AttractionsController
  */
 public AttractionsController(NavigationView navView)
 {
-    AttractionView att = new AttractionView(attractionsModel.getAllAttractions());
+   AttractionsList attractionsModel = new AttractionsList();
+    AttractionView att = new AttractionView(attractionsModel.getAttList());
                  navView.remove(navView.getMainPanel());
                navView.getContentPane().add(att);
                navView.revalidate();
                navView.setVisible(true);
-  this.attractionsModel = new AttractionsList();
+
 
   
      addAttractionScheduleClicked();
@@ -46,22 +47,21 @@ public AttractionsController(NavigationView navView)
   
 }
 
+
+public ArrayList<Attraction> getAllAttractions(ArrayList<Attraction> attList)
+{
+    return (ArrayList<Attraction>) attList;
+}
 /**
  * Returns an AttractionsList of AttractionsController.
  * @return A AttractionsList representing AttractionsModel.
  */
-public AttractionsList getAttractionsModel()
-{
-  return attractionsModel;
-}
+
 /**
  * Sets the AttractionsModel for the AttractionsController.
  * @param attractionsModel sets the AttractionsList for AttractionsController.
  */
-public void setAttractionsModel(AttractionsList attractionsModel)
-{
-  this.attractionsModel = attractionsModel;
-}
+
 /**
  * Returns the AttractionView of the AttractionsController.
  * @return A AttractionView representing attractionsView.

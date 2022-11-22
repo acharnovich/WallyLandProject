@@ -56,10 +56,10 @@ public void addToScheduleClicked(int eventID, String userID)
         ProfileView profileView = new ProfileView();
 ArrayList<Attraction> profileAttractions = new ArrayList<Attraction>();
 AttractionsList attractionsList = new AttractionsList();
-       for (int i = 0; i < attractionsList.getAllAttractions().size(); i++){
+       for (int i = 0; i < attractionsList.getAttList().size(); i++){
            for (int x = 0; x < profileList.getAccountList().get(0).getSchedule().size(); x++){
-               if(profileList.getAccountList().get(i).getSchedule().get(x).equals(attractionsList.getAllAttractions().get(i).getAttractionID())){
-                   profileAttractions.add(attractionsList.getAllAttractions().get(i));
+               if(profileList.getAccountList().get(i).getSchedule().get(x).equals(attractionsList.getAttList().get(i).getAttractionID())){
+                   profileAttractions.add(attractionsList.getAttList().get(i));
                }
            }
 

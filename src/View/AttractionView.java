@@ -7,6 +7,7 @@ package View;
 import Model.Attraction;
 import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,12 +18,26 @@ public class AttractionView extends javax.swing.JPanel {
     /**
      * Creates new form AttractionView
      */
-    public AttractionView(ArrayList<Attraction> attList) {
+public AttractionView(ArrayList<Attraction> attList) {
         initComponents();
         populateTable(attList);
     }
     public void populateTable(ArrayList<Attraction> attList){
+        DefaultTableModel model =  (DefaultTableModel) attractionTable.getModel();
+        Object rowData[] = new Object[7];
+        for(int i = 0; i < attList.size(); i++){
+       
         
+            rowData[0] = attList.get(i).getName();
+            rowData[1] = attList.get(i).getDescription();
+            rowData[2] = attList.get(i).getDate();
+            rowData[3] = attList.get(i).getMaxCapacity();
+            rowData[4] = attList.get(i).getCurrentCapacity();
+            rowData[5] = attList.get(i).getWaitTime();
+            rowData[6] = attList.get(i).getWaitTimeIncrease();
+            model.addRow(rowData);
+       }     
+     
     }
 
     /**
@@ -35,27 +50,44 @@ public class AttractionView extends javax.swing.JPanel {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        attractionTable = new javax.swing.JTable();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Schedule");
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 510, -1, -1));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 530, 110, 40));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        attractionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Title 1"
+                "Name", "Description ", "Date", "Max. Capacity", "Current Capacity", "Wait Time", "Wait Time Increase "
             }
-        ));
-        jTable2.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(jTable2);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 7, 1070, 420));
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        attractionTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(attractionTable);
+
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 47, 1000, 450));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public JButton getjButton1() {
         return jButton1;
@@ -66,9 +98,9 @@ public class AttractionView extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable attractionTable;
     private javax.swing.JButton jButton1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JScrollPane jScrollPane3;
     // End of variables declaration//GEN-END:variables
 
 }

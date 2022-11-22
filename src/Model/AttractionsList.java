@@ -4,7 +4,9 @@
  */
 package Model;
 
+
 import java.util.ArrayList;
+import Model.Attraction;
 
 /**
  * This AttractionsList class will act as a database class to store attraction objects or retrieve them from a JSON file.
@@ -12,24 +14,25 @@ import java.util.ArrayList;
  */
 public class AttractionsList
 {
-ArrayList<Attraction> allAttractions = new ArrayList<Attraction>();
+private ArrayList<Attraction> attList;
 /**
  * This is the all parameter constructor for AttractionsList. 
  * @param allAttractions accepts a ArrayList input of all attractions.
  */
-public AttractionsList(ArrayList<Attraction> allAttractions)
+public AttractionsList(ArrayList<Attraction> attList)
 {
- this.allAttractions = allAttractions;
+ this.attList = new ArrayList<Attraction>();
 }
 /**
  * This is the default constructor for AttractionsList.
  */
 public AttractionsList()
-{
-this.allAttractions = getAllAttractions();
-    Attraction attractionTest = new Attraction("TestAttraction","This is a test Attraction", "10-10-2022", 25, 10, 4325345, 10, 2);
-   getAllAttractions().add(attractionTest);
+{   
+  Attraction attractionTest = new Attraction("TestAttraction","This is a test Attraction", "10-10-2022", 25, 10, 4325345, 10, 2);
+ this.attList = new ArrayList<Attraction>();   
+ attList.add(attractionTest);
 
+   
 }
 /**
  * Returns the AllAttractions ArrayList.
@@ -41,30 +44,15 @@ Attraction attractionTest = new Attraction("TestAttraction","This is a test Attr
 
 return attractionTest.toString();
 }
-public ArrayList<Attraction> getAllAttractions()
-{
-    return (ArrayList<Attraction>) allAttractions;
+
+public ArrayList<Attraction> getAttList() {
+    return attList;
 }
 
-public void addAttraction(Attraction newAttraction){
-    getAllAttractions().add(newAttraction);
-}
-/**
- * Sets the allAttractions for AttractionsList. 
- * @param allAttractions sets allAttractions ArrayList for AttractionsList.
- */
-public void setAllAttractions(ArrayList<Attraction> allAttractions)
-{
-    this.allAttractions = allAttractions;
-
+public void setAttList(ArrayList<Attraction> attList) {
+    this.attList = attList;
 }
 
-public int getLength(){
-    return this.allAttractions.size();
-}
 
-public Attraction getAttraction(int i){
-    return this.allAttractions.get(i);
-}
-    
+
 }
