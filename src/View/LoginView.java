@@ -41,22 +41,34 @@ public class LoginView extends javax.swing.JFrame {
         userText = new javax.swing.JTextField();
         loginButton = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WallyLand Login");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Login");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 37, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("User:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 75, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Pass:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 135, -1, -1));
-        jPanel1.add(userText, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 72, 120, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
+
+        userText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userTextActionPerformed(evt);
+            }
+        });
+        jPanel1.add(userText, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 120, -1));
 
         loginButton.setText("LOGIN");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
@@ -64,16 +76,20 @@ public class LoginView extends javax.swing.JFrame {
                 loginButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 189, -1, -1));
+        jPanel1.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
 
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 120, -1));
+        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 120, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, 350, 310));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 330, 180));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("/Users/andrewc4/NetBeansProjects/WallyLandProject412/Docs/Pictures/APZOTEIPARB7ZD76EVN5CSRGFM.jpeg")); // NOI18N
+        jLabel4.setText("jLabel4");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 600));
 
         setSize(new java.awt.Dimension(1070, 628));
         setLocationRelativeTo(null);
@@ -86,6 +102,10 @@ public class LoginView extends javax.swing.JFrame {
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void userTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,6 +147,7 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JButton loginButton;

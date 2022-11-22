@@ -38,6 +38,7 @@ public class NavigationView extends javax.swing.JFrame {
         mainPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jToolBar1.setFocusable(false);
 
