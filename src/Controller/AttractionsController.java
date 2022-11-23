@@ -54,7 +54,7 @@ public AttractionsController(NavigationView navView, UserAccount activeUser)
             att.getAttractionTable().getSelectedRow();
             System.out.print(att.getAttractionTable().getSelectedRow());
      
-            String confirmation = activeUser.addToSchedule(1, att.getAttractionTable().getModel().getValueAt(att.getAttractionTable().getSelectedRow(),0).toString());
+            String confirmation = activeUser.addToSchedule((int) att.getPartySpinner().getValue(), att.getAttractionTable().getModel().getValueAt(att.getAttractionTable().getSelectedRow(),0).toString());
                JOptionPane.showMessageDialog(null, confirmation,"Attraction Scheduled!",JOptionPane.PLAIN_MESSAGE);
             }
         });

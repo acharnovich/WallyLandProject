@@ -8,6 +8,7 @@ import Model.Attraction;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -51,19 +52,13 @@ public AttractionView(ArrayList<Attraction> attList) {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        scheduleBtn = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         attractionTable = new javax.swing.JTable();
+        scheduleBtn = new javax.swing.JButton();
+        partySpinner = new javax.swing.JSpinner();
+        jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        scheduleBtn.setText("Schedule");
-        scheduleBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                scheduleBtnActionPerformed(evt);
-            }
-        });
-        add(scheduleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 530, 110, 40));
 
         attractionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,23 +90,30 @@ public AttractionView(ArrayList<Attraction> attList) {
         }
 
         add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 47, 1000, 450));
+
+        scheduleBtn.setText("Schedule");
+        scheduleBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                scheduleBtnActionPerformed(evt);
+            }
+        });
+        add(scheduleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 520, 110, 40));
+        add(partySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 520, -1, 40));
+
+        jLabel1.setText("Party Size:");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void scheduleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scheduleBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_scheduleBtnActionPerformed
 
-    public JButton getjButton1() {
-        return scheduleBtn;
-    }
-
-    public void setjButton1(JButton jButton1) {
-        this.scheduleBtn = jButton1;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable attractionTable;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSpinner partySpinner;
     private javax.swing.JButton scheduleBtn;
     // End of variables declaration//GEN-END:variables
 
@@ -131,6 +133,14 @@ public AttractionView(ArrayList<Attraction> attList) {
         this.jScrollPane3 = jScrollPane3;
     }
 
+    public JSpinner getPartySpinner() {
+        return partySpinner;
+    }
+
+    public void setPartySpinner(JSpinner partySpinner) {
+        this.partySpinner = partySpinner;
+    }
+
     public JButton getScheduleBtn() {
         return scheduleBtn;
     }
@@ -138,5 +148,8 @@ public AttractionView(ArrayList<Attraction> attList) {
     public void setScheduleBtn(JButton scheduleBtn) {
         this.scheduleBtn = scheduleBtn;
     }
+
+
+
 
 }
