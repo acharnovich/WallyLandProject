@@ -1,8 +1,8 @@
 
 package Model;
 
+import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
-import java.util.Date;
 /**
  * UserAccount inherits Person and creates an instance of a customer's account which contains their personal information, login credentials, and ArrayList representing the customer's schedule and their food orders
  * @author tpn352
@@ -40,6 +40,24 @@ public class UserAccount extends Person {
         this.ticketHolder = false;
     }
 
+    public String addToSchedule(int partySize, String attractionID){
+        int attID = parseInt(attractionID);
+        AttractionsList currentAttractions = new AttractionsList();
+        Attraction toSchedule = new Attraction();
+        currentAttractions.getAttList();
+        for(int i = 0; i < currentAttractions.getAttListSize(); ++i){
+            if(currentAttractions.getAtt(i).getAttractionID() == attID){
+                toSchedule = currentAttractions.getAtt(i);
+            }else{
+                return "Attraction not Found";
+            }        
+        } 
+        toSchedule.increaseCapacity(partySize);
+        this.addScheduledAttraction(toSchedule);
+        String confirmation = ("You have added " + toSchedule.getName() + "to your schedule for a party of " + partySize + ".");
+        return confirmation;
+    }
+    
     public boolean isTicketHolder() {
         if(ticketsPurchased.isEmpty()){
             ticketHolder = false;

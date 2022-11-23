@@ -59,16 +59,6 @@ public class Attraction {
         this.waitTimeIncrease = waitTimeIncrease;
     }
 
-    public String addedToSchedule(UserAccount activeUser, int partySize){
-
-        this.increaseCapacity(partySize);
-        activeUser.addScheduledAttraction(this);
-        String confirmation = ("You have added " + this.getName() + "to your schedule for a party of " + partySize + ".");
-                System.out.println("Also Adding this to check the git");
-        return confirmation;
-
-    }
-
     public void increaseCapacity(int partySize){
         this.currentCapacity = this.currentCapacity + partySize;
         if (this.currentCapacity >= this.maxCapacity){

@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 /**
@@ -25,7 +26,7 @@ import javax.swing.SwingUtilities;
  */
 public class AttractionsController
 {
-
+UserAccount activeUser;
 
 /**
  * This is the default constructor for AttractionsController.
@@ -38,6 +39,7 @@ public AttractionsController(NavigationView navView, UserAccount activeUser)
                navView.getContentPane().add(att);
                navView.revalidate();
                navView.setVisible(true);
+               this.activeUser = activeUser;
 
 
   addListeners(att);
@@ -51,10 +53,9 @@ public AttractionsController(NavigationView navView, UserAccount activeUser)
             public void actionPerformed(ActionEvent e) {
             att.getAttractionTable().getSelectedRow();
             System.out.print(att.getAttractionTable().getSelectedRow());
-            //Place this uncommented line below in whatever model method you need to send it to. It passes the attraction ID
-            //e.g addScheduledAttraction(att.getAttractionTable().getModel().getValueAt(att.getAttractionTable().getSelectedRow(),0).toString()){
-            att.getAttractionTable().getModel().getValueAt(att.getAttractionTable().getSelectedRow(),0).toString();
- 
+     
+            String confirmation = activeUser.addToSchedule(1, att.getAttractionTable().getModel().getValueAt(att.getAttractionTable().getSelectedRow(),0).toString());
+               JOptionPane.showMessageDialog(null, confirmation,"Attraction Scheduled!",JOptionPane.PLAIN_MESSAGE);
             }
         });
 

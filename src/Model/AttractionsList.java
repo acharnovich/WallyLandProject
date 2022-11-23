@@ -53,6 +53,14 @@ public void setAttList(ArrayList<Attraction> attList) {
     this.attList = attList;
 }
 
+public int getAttListSize(){
+    return attList.size();
+}
+
+public Attraction getAtt(int i){
+    return attList.get(i);
+}
+
 
 
 }
