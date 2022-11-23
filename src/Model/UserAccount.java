@@ -41,22 +41,27 @@ public class UserAccount extends Person {
     }
 
     public String addToSchedule(int partySize, String attractionID){
-        int attID = parseInt(attractionID);
-        AttractionsList currentAttractions = new AttractionsList();
-        Attraction toSchedule = new Attraction();
-        currentAttractions.getAttList();
-        for(int i = 0; i < currentAttractions.getAttListSize(); ++i){
-            if(currentAttractions.getAtt(i).getAttractionID() == attID){
-                toSchedule = currentAttractions.getAtt(i);
-            }else{
-                return "Attraction not Found";
-            }        
-        } 
-        toSchedule.increaseCapacity(partySize);
-        this.addScheduledAttraction(toSchedule);
-        String confirmation = ("You have added " + toSchedule.getName() + "to your schedule for a party of " + partySize + ".");
-        return confirmation;
-    }
+        if(partySize <= this.ticketsPurchased.size() && partySize > 0){
+            int attID = parseInt(attractionID);
+            AttractionsList currentAttractions = new AttractionsList();
+            Attraction toSchedule = new Attraction();
+            currentAttractions.getAttList();
+            for(int i = 0; i < currentAttractions.getAttListSize(); ++i){
+                if(currentAttractions.getAtt(i).getAttractionID() == attID){
+                    toSchedule = currentAttractions.getAtt(i);
+                }else{
+                    return "Attraction not Found";
+                }        
+            } 
+            toSchedule.increaseCapacity(partySize);
+            this.addScheduledAttraction(toSchedule);
+            String confirmation = ("You have added " + toSchedule.getName() + "to your schedule for a party of " + partySize + ".");
+            return confirmation;
+        } else {
+        return "Party Size exceeds tickets purchased, please try again.";
+        }
+      }
+
     
     public boolean isTicketHolder() {
         if(ticketsPurchased.isEmpty()){
