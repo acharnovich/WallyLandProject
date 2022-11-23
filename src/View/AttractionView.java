@@ -7,6 +7,8 @@ package View;
 import Model.Attraction;
 import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,17 +26,17 @@ public AttractionView(ArrayList<Attraction> attList) {
     }
     public void populateTable(ArrayList<Attraction> attList){
         DefaultTableModel model =  (DefaultTableModel) attractionTable.getModel();
-        Object rowData[] = new Object[7];
+        Object rowData[] = new Object[8];
         for(int i = 0; i < attList.size(); i++){
        
-        
-            rowData[0] = attList.get(i).getName();
-            rowData[1] = attList.get(i).getDescription();
-            rowData[2] = attList.get(i).getDate();
-            rowData[3] = attList.get(i).getMaxCapacity();
-            rowData[4] = attList.get(i).getCurrentCapacity();
-            rowData[5] = attList.get(i).getWaitTime();
-            rowData[6] = attList.get(i).getWaitTimeIncrease();
+            rowData[0] = attList.get(i).getAttractionID();
+            rowData[1] = attList.get(i).getName();
+            rowData[2] = attList.get(i).getDescription();
+            rowData[3] = attList.get(i).getDate();
+            rowData[4] = attList.get(i).getMaxCapacity();
+            rowData[5] = attList.get(i).getCurrentCapacity();
+            rowData[6] = attList.get(i).getWaitTime();
+            rowData[7] = attList.get(i).getWaitTimeIncrease();
             model.addRow(rowData);
        }     
      
@@ -49,30 +51,30 @@ public AttractionView(ArrayList<Attraction> attList) {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        scheduleBtn = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         attractionTable = new javax.swing.JTable();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Schedule");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        scheduleBtn.setText("Schedule");
+        scheduleBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                scheduleBtnActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 530, 110, 40));
+        add(scheduleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 530, 110, 40));
 
         attractionTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Name", "Description ", "Date", "Max. Capacity", "Current Capacity", "Wait Time", "Wait Time Increase "
+                "ID", "Name", "Description ", "Date", "Max. Capacity", "Current Capacity", "Wait Time", "Wait Time Increase "
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -81,26 +83,60 @@ public AttractionView(ArrayList<Attraction> attList) {
         });
         attractionTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(attractionTable);
+        if (attractionTable.getColumnModel().getColumnCount() > 0) {
+            attractionTable.getColumnModel().getColumn(0).setResizable(false);
+            attractionTable.getColumnModel().getColumn(1).setResizable(false);
+            attractionTable.getColumnModel().getColumn(2).setResizable(false);
+            attractionTable.getColumnModel().getColumn(3).setResizable(false);
+            attractionTable.getColumnModel().getColumn(4).setResizable(false);
+            attractionTable.getColumnModel().getColumn(5).setResizable(false);
+            attractionTable.getColumnModel().getColumn(6).setResizable(false);
+            attractionTable.getColumnModel().getColumn(7).setResizable(false);
+        }
 
         add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 47, 1000, 450));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void scheduleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scheduleBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_scheduleBtnActionPerformed
 
     public JButton getjButton1() {
-        return jButton1;
+        return scheduleBtn;
     }
 
     public void setjButton1(JButton jButton1) {
-        this.jButton1 = jButton1;
+        this.scheduleBtn = jButton1;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable attractionTable;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JButton scheduleBtn;
     // End of variables declaration//GEN-END:variables
+
+    public JTable getAttractionTable() {
+        return attractionTable;
+    }
+
+    public void setAttractionTable(JTable attractionTable) {
+        this.attractionTable = attractionTable;
+    }
+
+    public JScrollPane getjScrollPane3() {
+        return jScrollPane3;
+    }
+
+    public void setjScrollPane3(JScrollPane jScrollPane3) {
+        this.jScrollPane3 = jScrollPane3;
+    }
+
+    public JButton getScheduleBtn() {
+        return scheduleBtn;
+    }
+
+    public void setScheduleBtn(JButton scheduleBtn) {
+        this.scheduleBtn = scheduleBtn;
+    }
 
 }

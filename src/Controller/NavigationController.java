@@ -73,7 +73,7 @@ public class NavigationController {
                     new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-             AttractionsController att = new AttractionsController(navView);
+             AttractionsController att = new AttractionsController(navView, activeUser);
              
        
                 

@@ -8,8 +8,14 @@ import Model.Attraction;
 import View.AttractionView;
 import java.util.ArrayList;
 import Model.AttractionsList;
+import Model.UserAccount;
 import View.NavigationView;
+import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Scanner;
+import javax.swing.JComponent;
+import javax.swing.SwingUtilities;
 
 /**
  ** The AttractionsController will control actions from attraction related views 
@@ -20,12 +26,11 @@ import java.util.Scanner;
 public class AttractionsController
 {
 
-  private AttractionView attractionsView;
 
 /**
  * This is the default constructor for AttractionsController.
  */
-public AttractionsController(NavigationView navView)
+public AttractionsController(NavigationView navView, UserAccount activeUser)
 {
    AttractionsList attractionsModel = new AttractionsList();
     AttractionView att = new AttractionView(attractionsModel.getAttList());
@@ -35,17 +40,25 @@ public AttractionsController(NavigationView navView)
                navView.setVisible(true);
 
 
-  
-     addAttractionScheduleClicked();
-
-/**
- * This is the all parameter constructor for AttractionsController.
- * @param attractionsModel accepts an attractionsList as input.
- * @param attractionsView accepts an AttractionView as input.
- */
-
+  addListeners(att);
   
 }
+
+    public void addListeners(AttractionView att) {
+        att.getScheduleBtn().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            att.getAttractionTable().getSelectedRow();
+            System.out.print(att.getAttractionTable().getSelectedRow());
+            //Place this uncommented line below in whatever model method you need to send it to. It passes the attraction ID
+            //e.g addScheduledAttraction(att.getAttractionTable().getModel().getValueAt(att.getAttractionTable().getSelectedRow(),0).toString()){
+            att.getAttractionTable().getModel().getValueAt(att.getAttractionTable().getSelectedRow(),0).toString();
+ 
+            }
+        });
+
+    }
 
 
 public ArrayList<Attraction> getAllAttractions(ArrayList<Attraction> attList)
@@ -63,22 +76,6 @@ public ArrayList<Attraction> getAllAttractions(ArrayList<Attraction> attList)
  */
 
 /**
- * Returns the AttractionView of the AttractionsController.
- * @return A AttractionView representing attractionsView.
- */
-public AttractionView getAttractionsView()
-{
-  return attractionsView;
-}
-/**
- * Sets the AttractionsView for the AttractionsController.
- * @param attractionsView sets the AttractionsView for AttractionsController.
- */
-public void setAttractionsView(AttractionView attractionsView)
-{
-  this.attractionsView = attractionsView;
-}
-/**
  * Modifies the capacity of an attraction after user removes or adds attraction to schedule.
  * @param n Decreases or increases the current capacity for attractions. When a action takes place, this will call the attraction class.
  * 
@@ -86,13 +83,6 @@ public void setAttractionsView(AttractionView attractionsView)
 public void setCurrentCapacity(int n){
 
 }
-public void addAttractionScheduleClicked(){
-    UserActionController addToProfile = new UserActionController();
-    addToProfile.addToScheduleClicked(4325345, "bobtest");
-   // attractionsView.displayAddedToProfileTest("Test Attraction");
 
-
-
-}
 
 }
