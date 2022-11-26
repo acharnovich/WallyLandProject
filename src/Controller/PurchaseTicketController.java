@@ -12,6 +12,7 @@ import java.util.Date;
 import Controller.NavigationController;
 import View.NavigationView;
 import java.awt.Window;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JComponent;
 
 
@@ -29,6 +30,8 @@ public class PurchaseTicketController implements ActionListener {
     PurchaseTicketView purchView = new PurchaseTicketView();
     UserAccount activeUser;
     Date date;
+    String dateFormat;
+    Boolean dateCheck;
     String validDate;
     String email;
     Boolean emailCheck;
@@ -64,7 +67,10 @@ public class PurchaseTicketController implements ActionListener {
     
     
     public boolean validateDate(String selectedDate){
-    DateFormat formatter = new SimpleDateFormat("MM/dd/yy");
+        //validDate = purchView.getDateTxt().getDate().format(DateTimeFormatter.ofPattern("uuuu-MM-dd"));
+        
+    
+        DateFormat formatter = new SimpleDateFormat("MM/dd/yy");
            date = null;
            formatter.setLenient(false);
            try{
@@ -74,17 +80,76 @@ public class PurchaseTicketController implements ActionListener {
         catch(Exception formatDate){
             return false;
        }
+        
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-      if (validateDate(purchView.getDateTxt().getText()) == false){
+        if (purchView.getDateTxt().getDate() == null){
+        JOptionPane.showMessageDialog(purchView,
+                       "Please fill out all fields in the form"
+                               ,"Missing Date",
+                       JOptionPane.ERROR_MESSAGE);
+        }else{
+        dateFormat = purchView.getDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy"));
+        if(validateDate(dateFormat) == false){
+            JOptionPane.showMessageDialog(purchView,
+                       "Invalid Date Format. Please enter date as "
+                               + "\n MM / DD / YY","Date Format Mismatch",
+                       JOptionPane.ERROR_MESSAGE);
+        }
+        }
+        
+        if(validateDate(dateFormat) == true){
+            validDate = purchView.getDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy"));
+            if (purchView.getEmailTxt().getText().isBlank()){
+            JOptionPane.showMessageDialog(purchView,
+                       "Please fill out all fields in the form"
+                               ,"Missing Information",
+                       JOptionPane.ERROR_MESSAGE);
+            }else{
+            email = purchView.getEmailTxt().getText();
+            }
+        }
+        
+        if (email.equals(activeUser.getEmail())){
+       //email = purchView.getEmailTxt().getText();
+       emailCheck = true;
+      }else{
+          JOptionPane.showMessageDialog(null, "Email does not match active user. Please enter registered email account for verification.");
+          emailCheck = false;}
+      
+        if (emailCheck == true ){
+
+            activeUser.createTicketOrder(validDate, Integer.parseInt(purchView.getQtyTxt().getValue().toString()));
+            JOptionPane.showMessageDialog(null, activeUser.viewTicketsPurchased(activeUser.getTicketsPurchased(), Integer.parseInt(purchView.getQtyTxt().getValue().toString())));  
+             JComponent comp = (JComponent) e.getSource();
+   Window win = SwingUtilities.getWindowAncestor(comp);
+   win.dispose();
+      NavigationController navController = new NavigationController(activeUser);
+      
+        }
+        
+     /*
+        if (purchView.getEmailTxt().getText().isBlank() ||  
+              purchView.getDateTxt().getDate().equals("")) 
+      {
+          JOptionPane.showMessageDialog(purchView,
+                       "Please fill out all fields in the form"
+                               ,"Missing Information",
+                       JOptionPane.ERROR_MESSAGE);
+      }
+      else{
+      //validDate = purchView.getDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy"));
+      }
+         
+      if (validateDate(purchView.getDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy"))) == false){
            JOptionPane.showMessageDialog(purchView,
                        "Invalid Date Format. Please enter date as "
                                + "\n MM / DD / YY","Date Format Mismatch",
                        JOptionPane.ERROR_MESSAGE);
         }else {
-       validDate =  purchView.getDateTxt().getText();
+       validDate =  purchView.getDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy"));
        //validDate = date.toString();
       }
       
@@ -95,10 +160,10 @@ public class PurchaseTicketController implements ActionListener {
           JOptionPane.showMessageDialog(null, "Email does not match active user. Please enter registered email account for verification.");
           emailCheck = false;}
       
-        if (emailCheck == true && validateDate(validDate) == true){
+        if (emailCheck == true ){
 
-            activeUser.createTicketOrder(validDate, Integer.parseInt(purchView.getQtyTxt().getText()));
-            JOptionPane.showMessageDialog(null, activeUser.viewTicketsPurchased(activeUser.getTicketsPurchased(), Integer.parseInt(purchView.getQtyTxt().getText())));  
+            activeUser.createTicketOrder(validDate, Integer.parseInt(purchView.getQtyTxt().getValue().toString()));
+            JOptionPane.showMessageDialog(null, activeUser.viewTicketsPurchased(activeUser.getTicketsPurchased(), Integer.parseInt(purchView.getQtyTxt().getValue().toString())));  
              JComponent comp = (JComponent) e.getSource();
    Window win = SwingUtilities.getWindowAncestor(comp);
    win.dispose();

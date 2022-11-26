@@ -4,7 +4,9 @@
  */
 package View;
 
+import com.github.lgooddatepicker.components.DatePicker;
 import javax.swing.JButton;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
 /**
@@ -30,8 +32,6 @@ public class PurchaseTicketView extends javax.swing.JFrame {
     private void initComponents() {
 
         purchaseTicketBtn = new javax.swing.JButton();
-        dateTxt = new javax.swing.JTextField();
-        qtyTxt = new javax.swing.JTextField();
         priceTxt = new javax.swing.JTextField();
         emailTxt = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -39,20 +39,19 @@ public class PurchaseTicketView extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         priceLbl = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        qtyTxt = new javax.swing.JSpinner();
+        dateTxt = new com.github.lgooddatepicker.components.DatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         purchaseTicketBtn.setText("Purchase Ticket");
-        getContentPane().add(purchaseTicketBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, -1, -1));
-
-        dateTxt.addActionListener(new java.awt.event.ActionListener() {
+        purchaseTicketBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dateTxtActionPerformed(evt);
+                purchaseTicketBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(dateTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 170, -1));
-        getContentPane().add(qtyTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 170, -1));
+        getContentPane().add(purchaseTicketBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, -1, -1));
 
         priceTxt.setText("59.99");
         priceTxt.setEnabled(false);
@@ -85,6 +84,10 @@ public class PurchaseTicketView extends javax.swing.JFrame {
         jLabel4.setText("Purchase Ticket Form");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, -1, -1));
 
+        qtyTxt.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
+        getContentPane().add(qtyTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 90, -1));
+        getContentPane().add(dateTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 170, -1));
+
         setSize(new java.awt.Dimension(620, 528));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -97,9 +100,9 @@ public class PurchaseTicketView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_priceTxtActionPerformed
 
-    private void dateTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dateTxtActionPerformed
+    private void purchaseTicketBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchaseTicketBtnActionPerformed
+          // TODO add your handling code here:
+    }//GEN-LAST:event_purchaseTicketBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,7 +140,7 @@ public class PurchaseTicketView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField dateTxt;
+    private com.github.lgooddatepicker.components.DatePicker dateTxt;
     private javax.swing.JTextField emailTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -146,14 +149,14 @@ public class PurchaseTicketView extends javax.swing.JFrame {
     private javax.swing.JLabel priceLbl;
     private javax.swing.JTextField priceTxt;
     private javax.swing.JButton purchaseTicketBtn;
-    private javax.swing.JTextField qtyTxt;
+    private javax.swing.JSpinner qtyTxt;
     // End of variables declaration//GEN-END:variables
 
-    public JTextField getDateTxt() {
+    public DatePicker getDateTxt() {
         return dateTxt;
     }
 
-    public void setDateTxt(JTextField dateTxt) {
+    public void setDateTxt(DatePicker dateTxt) {
         this.dateTxt = dateTxt;
     }
 
@@ -173,11 +176,11 @@ public class PurchaseTicketView extends javax.swing.JFrame {
         this.purchaseTicketBtn = purchaseTicketBtn;
     }
 
-    public JTextField getQtyTxt() {
+    public JSpinner getQtyTxt() {
         return qtyTxt;
     }
 
-    public void setQtyTxt(JTextField qtyTxt) {
+    public void setQtyTxt(JSpinner qtyTxt) {
         this.qtyTxt = qtyTxt;
     }
 
