@@ -28,9 +28,13 @@ public AttractionsList(ArrayList<Attraction> attList)
  */
 public AttractionsList()
 {   
-  Attraction attractionTest = new Attraction("TestAttraction","This is a test Attraction", "10-10-2022", 25, 10, 4325345, 10, 2);
- this.attList = new ArrayList<Attraction>();   
- attList.add(attractionTest);
+  Attraction att0 = new Attraction("Wally's Wacky Shack","A silly fun house for all ages!", "10-10-2022", 4, 0, 43253545, 8, 2);
+  Attraction att1 = new Attraction("Generic Roller Coaster","It's a roller coaster....", "10-10-2022", 25, 10, 56835292, 10, 1);
+  Attraction att2 = new Attraction("Log Ride","A classic log ride, big splashes and bigger smiles", "10-10-2022", 4, 0, 65845251, 6, 1); 
+  this.attList = new ArrayList<Attraction>();
+  attList.add(att0);
+  attList.add(att1);
+  attList.add(att2);
 
    
 }

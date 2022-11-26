@@ -42,23 +42,27 @@ public class UserAccount extends Person {
 
     public String addToSchedule(int partySize, String attractionID){
         if(partySize <= this.ticketsPurchased.size() && partySize > 0){
-            int attID = parseInt(attractionID);
+            System.out.println("AttractionID String: " + attractionID);
+            int attID = Integer.parseInt(attractionID);
+            System.out.println("AttractionID int: " + attID);
             AttractionsList currentAttractions = new AttractionsList();
+            
             Attraction toSchedule = new Attraction();
             currentAttractions.getAttList();
             for(int i = 0; i < currentAttractions.getAttListSize(); ++i){
                 if(currentAttractions.getAtt(i).getAttractionID() == attID){
                     toSchedule = currentAttractions.getAtt(i);
+                    System.out.println(toSchedule.toString());
                 }else{
                     return "Attraction not Found";
                 }        
             } 
             toSchedule.increaseCapacity(partySize);
             this.addScheduledAttraction(toSchedule);
-            String confirmation = ("You have added " + toSchedule.getName() + "to your schedule for a party of " + partySize + ".");
+            String confirmation = ("You have added " + toSchedule.getName() + " to your schedule for a party of " + partySize + ".");
             return confirmation;
         } else {
-        return "Party Size exceeds tickets purchased, please try again.";
+        return "Invalid party size. Must be more than 0 and not exceed tickets purchased. Please try again.";
         }
       }
 
@@ -85,24 +89,7 @@ public class UserAccount extends Person {
         }
         addPurchasedTickets(tickets);
     }
-/*
-    public StringBuilder viewTicketsPurchased(ArrayList<parkTicket> tickets){
-        StringBuilder ticketList = new StringBuilder();
-        int qty = tickets.size();
-        double total = (qty * 59.99);
-        ticketList.append("Purhcase Successful! you have purchased ");
-        ticketList.append(qty);
-        ticketList.append(" tickets for $");
-        ticketList.append(total);
-        ticketList.append("\nA reciept for this purchases and copies of the tickets have been sent to: ");
-        ticketList.append(this.getEmail());
-        for(int i = 0; i < tickets.size(); ++i) {
-            ticketList.append("\n");
-            ticketList.append(tickets.get(i).toString());
-        }
-        return ticketList;
-    }
-    */
+
     public StringBuilder viewTicketsPurchased(ArrayList<parkTicket> tickets, int qty){
         StringBuilder ticketList = new StringBuilder();
         double total = (qty * 59.99);
