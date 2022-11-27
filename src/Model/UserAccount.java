@@ -40,29 +40,36 @@ public class UserAccount extends Person {
         this.ticketHolder = false;
     }
 
-    public String addToSchedule(int partySize, String attractionID){
+    public void addToSchedule(int partySize, int attractionID){
         if(partySize <= this.ticketsPurchased.size() && partySize > 0){
             System.out.println("AttractionID String: " + attractionID);
-            int attID = Integer.parseInt(attractionID);
+            int attID = attractionID;
             System.out.println("AttractionID int: " + attID);
             AttractionsList currentAttractions = new AttractionsList();
             
             Attraction toSchedule = new Attraction();
             currentAttractions.getAttList();
-            for(int i = 0; i < currentAttractions.getAttListSize(); ++i){
-                if(currentAttractions.getAtt(i).getAttractionID() == attID){
+            //changed this to .size
+            for(int i = 0; i < currentAttractions.getAttList().size(); i++){
+                if(attID == currentAttractions.getAtt(i).getAttractionID()){
                     toSchedule = currentAttractions.getAtt(i);
-                    System.out.println(toSchedule.toString());
-                }else{
-                    return "Attraction not Found";
-                }        
+                    System.out.println("This is the test ATT: "+toSchedule.toString());
+                    this.addScheduledAttraction(toSchedule);
+                    System.out.println("Size of Schedule: " + this.schedule.size());
+                        toSchedule.increaseCapacity(partySize);
+             //String confirmation = ("You have added " + toSchedule.getName() + " to your schedule for a party of " + partySize + ".");
+                } else{
+                System.out.println("Not Found");
+                }
             } 
-            toSchedule.increaseCapacity(partySize);
-            this.addScheduledAttraction(toSchedule);
-            String confirmation = ("You have added " + toSchedule.getName() + " to your schedule for a party of " + partySize + ".");
-            return confirmation;
+        
+           
+             
+
+         
         } else {
-        return "Invalid party size. Must be more than 0 and not exceed tickets purchased. Please try again.";
+            
+       // return "Invalid party size. Must be more than 0 and not exceed tickets purchased. Please try again.";
         }
       }
 

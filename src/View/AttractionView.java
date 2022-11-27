@@ -27,7 +27,7 @@ public AttractionView(ArrayList<Attraction> attList) {
     }
     public void populateTable(ArrayList<Attraction> attList){
         DefaultTableModel model =  (DefaultTableModel) attractionTable.getModel();
-        Object rowData[] = new Object[8];
+        Object rowData[] = new Object[6];
         for(int i = 0; i < attList.size(); i++){
        
             rowData[0] = attList.get(i).getAttractionID();
@@ -35,9 +35,7 @@ public AttractionView(ArrayList<Attraction> attList) {
             rowData[2] = attList.get(i).getDescription();
             rowData[3] = attList.get(i).getDate();
             rowData[4] = attList.get(i).getMaxCapacity();
-            rowData[5] = attList.get(i).getCurrentCapacity();
-            rowData[6] = attList.get(i).getWaitTime();
-            rowData[7] = attList.get(i).getWaitTimeIncrease();
+            rowData[5] = attList.get(i).getWaitTime();
             model.addRow(rowData);
        }     
      
@@ -65,11 +63,11 @@ public AttractionView(ArrayList<Attraction> attList) {
 
             },
             new String [] {
-                "ID", "Name", "Description ", "Date", "Max. Capacity", "Current Capacity", "Wait Time", "Wait Time Increase "
+                "ID", "Name", "Description ", "Date", "Max. Capacity", "Wait Time"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -85,8 +83,6 @@ public AttractionView(ArrayList<Attraction> attList) {
             attractionTable.getColumnModel().getColumn(3).setResizable(false);
             attractionTable.getColumnModel().getColumn(4).setResizable(false);
             attractionTable.getColumnModel().getColumn(5).setResizable(false);
-            attractionTable.getColumnModel().getColumn(6).setResizable(false);
-            attractionTable.getColumnModel().getColumn(7).setResizable(false);
         }
 
         add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 47, 1000, 450));

@@ -53,8 +53,8 @@ public AttractionsController(NavigationView navView, UserAccount activeUser)
             public void actionPerformed(ActionEvent e) {
             att.getAttractionTable().getSelectedRow();
             System.out.print(att.getAttractionTable().getSelectedRow());
-            String confirmation = activeUser.addToSchedule((int) att.getPartySpinner().getValue(), att.getAttractionTable().getModel().getValueAt(att.getAttractionTable().getSelectedRow(),0).toString());
-               JOptionPane.showMessageDialog(null, confirmation,"Attraction Scheduled!",JOptionPane.PLAIN_MESSAGE);
+            activeUser.addToSchedule((int) att.getPartySpinner().getValue(), Integer.valueOf(att.getAttractionTable().getModel().getValueAt(att.getAttractionTable().getSelectedRow(),0).toString()));
+               JOptionPane.showMessageDialog(null, "This attraction was added successfully.","Attraction Scheduled!",JOptionPane.PLAIN_MESSAGE);
             }
         });
 
