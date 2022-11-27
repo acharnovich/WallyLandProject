@@ -36,6 +36,7 @@ public class NavigationView extends javax.swing.JFrame {
         orderBtn = new javax.swing.JButton();
         reserveBtn = new javax.swing.JButton();
         mainPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -81,6 +82,11 @@ public class NavigationView extends javax.swing.JFrame {
         jToolBar1.add(reserveBtn);
 
         getContentPane().add(jToolBar1, java.awt.BorderLayout.PAGE_START);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Images/2020-Park-Map-image-block2.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        mainPanel.add(jLabel1);
+
         getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
 
         setSize(new java.awt.Dimension(1070, 628));
@@ -139,6 +145,7 @@ public class NavigationView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JButton orderBtn;
