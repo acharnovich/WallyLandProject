@@ -43,6 +43,7 @@ public class PurchaseTicketView extends javax.swing.JFrame {
         dateTxt = new com.github.lgooddatepicker.components.DatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         purchaseTicketBtn.setText("Purchase Ticket");

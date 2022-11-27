@@ -92,6 +92,8 @@ public AttractionView(ArrayList<Attraction> attList) {
             }
         });
         add(scheduleBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 520, 110, 40));
+
+        partySpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
         add(partySpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 520, -1, 40));
 
         jLabel1.setText("Party Size:");
