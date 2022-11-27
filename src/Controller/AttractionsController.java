@@ -19,70 +19,80 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 /**
- ** The AttractionsController will control actions from attraction related views 
- * and pass them to the attraction model. This class will also interact with user profiles
- * to add attractions to their schedule.
+ ** The AttractionsController will control actions from attraction related
+ * views and pass them to the attraction model. This class will also interact
+ * with user profiles to add attractions to their schedule.
+ *
  * @author aic5588
  */
-public class AttractionsController
-{
-UserAccount activeUser;
+public class AttractionsController {
 
-/**
- * This is the default constructor for AttractionsController.
- */
-public AttractionsController(NavigationView navView, UserAccount activeUser)
-{
-   AttractionsList attractionsModel = new AttractionsList();
-    AttractionView att = new AttractionView(attractionsModel.getAttList());
-                 navView.remove(navView.getMainPanel());
-               navView.getContentPane().add(att);
-               navView.revalidate();
-               navView.setVisible(true);
-               this.activeUser = activeUser;
+    UserAccount activeUser;
 
+    /**
+     * This is the default constructor for AttractionsController.
+     */
+    public AttractionsController(NavigationView navView, UserAccount activeUser) {
+        AttractionsList attractionsModel = new AttractionsList();
+        AttractionView att = new AttractionView(attractionsModel.getAttList());
+        navView.remove(navView.getMainPanel());
+        navView.getContentPane().add(att);
+        navView.revalidate();
+        navView.setVisible(true);
+        this.activeUser = activeUser;
 
-  addListeners(att);
-  
-}
+        addListeners(att);
+
+    }
 
     public void addListeners(AttractionView att) {
         att.getScheduleBtn().addActionListener(
                 new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            att.getAttractionTable().getSelectedRow();
-            System.out.print(att.getAttractionTable().getSelectedRow());
-            activeUser.addToSchedule((int) att.getPartySpinner().getValue(), Integer.valueOf(att.getAttractionTable().getModel().getValueAt(att.getAttractionTable().getSelectedRow(),0).toString()));
-               JOptionPane.showMessageDialog(null, "This attraction was added successfully.","Attraction Scheduled!",JOptionPane.PLAIN_MESSAGE);
+                att.getAttractionTable().getSelectedRow();
+                System.out.print(att.getAttractionTable().getSelectedRow());
+                if ((int) att.getPartySpinner().getValue() > 0 && att.getAttractionTable().getSelectedRow() >= 0) {
+
+                    if (activeUser.addToSchedule((int) att.getPartySpinner().getValue(), Integer.valueOf(att.getAttractionTable().getModel().getValueAt(att.getAttractionTable().getSelectedRow(), 0).toString())) == 0) {
+                        JOptionPane.showMessageDialog(null, "This attraction was added successfully. You have added \n" + att.getAttractionTable().getModel().getValueAt(att.getAttractionTable().getSelectedRow(), 1).toString() + " to your schedule for a party of \" + " + att.getPartySpinner().getValue() + "Attraction Scheduled!" + JOptionPane.PLAIN_MESSAGE);
+                    } else if (activeUser.addToSchedule((int) att.getPartySpinner().getValue(), Integer.valueOf(att.getAttractionTable().getModel().getValueAt(att.getAttractionTable().getSelectedRow(), 0).toString())) == 1) {
+                        JOptionPane.showMessageDialog(null, "Attraction not found or no longer available.", "Attraction Error!", JOptionPane.ERROR_MESSAGE);
+                    }
+                } else if (activeUser.addToSchedule((int) att.getPartySpinner().getValue(), Integer.valueOf(att.getAttractionTable().getModel().getValueAt(att.getAttractionTable().getSelectedRow(), 0).toString())) == 2) {
+                    JOptionPane.showMessageDialog(null, "Please make sure party size is greater than 0, not greater than tickets purchased, and an attraction is selected.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
 
     }
 
+    public ArrayList<Attraction> getAllAttractions(ArrayList<Attraction> attList) {
+        return (ArrayList<Attraction>) attList;
+    }
 
-public ArrayList<Attraction> getAllAttractions(ArrayList<Attraction> attList)
-{
-    return (ArrayList<Attraction>) attList;
-}
-/**
- * Returns an AttractionsList of AttractionsController.
- * @return A AttractionsList representing AttractionsModel.
- */
+    /**
+     * Returns an AttractionsList of AttractionsController.
+     *
+     * @return A AttractionsList representing AttractionsModel.
+     */
 
-/**
- * Sets the AttractionsModel for the AttractionsController.
- * @param attractionsModel sets the AttractionsList for AttractionsController.
- */
+    /**
+     * Sets the AttractionsModel for the AttractionsController.
+     *
+     * @param attractionsModel sets the AttractionsList for
+     * AttractionsController.
+     */
+    /**
+     * Modifies the capacity of an attraction after user removes or adds
+     * attraction to schedule.
+     *
+     * @param n Decreases or increases the current capacity for attractions.
+     * When a action takes place, this will call the attraction class.
+     *
+     */
+    public void setCurrentCapacity(int n) {
 
-/**
- * Modifies the capacity of an attraction after user removes or adds attraction to schedule.
- * @param n Decreases or increases the current capacity for attractions. When a action takes place, this will call the attraction class.
- * 
- */
-public void setCurrentCapacity(int n){
-
-}
-
+    }
 
 }

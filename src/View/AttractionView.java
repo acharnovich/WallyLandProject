@@ -27,15 +27,14 @@ public AttractionView(ArrayList<Attraction> attList) {
     }
     public void populateTable(ArrayList<Attraction> attList){
         DefaultTableModel model =  (DefaultTableModel) attractionTable.getModel();
-        Object rowData[] = new Object[6];
+        Object rowData[] = new Object[5];
         for(int i = 0; i < attList.size(); i++){
        
             rowData[0] = attList.get(i).getAttractionID();
             rowData[1] = attList.get(i).getName();
             rowData[2] = attList.get(i).getDescription();
-            rowData[3] = attList.get(i).getDate();
-            rowData[4] = attList.get(i).getMaxCapacity();
-            rowData[5] = attList.get(i).getWaitTime();
+            rowData[3] = attList.get(i).getMaxCapacity();
+            rowData[4] = attList.get(i).getWaitTime();
             model.addRow(rowData);
        }     
      
@@ -63,11 +62,11 @@ public AttractionView(ArrayList<Attraction> attList) {
 
             },
             new String [] {
-                "ID", "Name", "Description ", "Date", "Max. Capacity", "Wait Time"
+                "ID", "Name", "Description ", "Max. Capacity", "Wait Time"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -82,7 +81,6 @@ public AttractionView(ArrayList<Attraction> attList) {
             attractionTable.getColumnModel().getColumn(2).setResizable(false);
             attractionTable.getColumnModel().getColumn(3).setResizable(false);
             attractionTable.getColumnModel().getColumn(4).setResizable(false);
-            attractionTable.getColumnModel().getColumn(5).setResizable(false);
         }
 
         add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 47, 1000, 450));
