@@ -41,6 +41,7 @@ public class NavigationView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        jToolBar1.setEnabled(false);
         jToolBar1.setFocusable(false);
 
         purchaseButton.setText("Purchase Tickets");
