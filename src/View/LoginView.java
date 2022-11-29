@@ -41,6 +41,7 @@ public class LoginView extends javax.swing.JFrame {
         userText = new javax.swing.JTextField();
         loginButton = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,6 +87,9 @@ public class LoginView extends javax.swing.JFrame {
         jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 120, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 330, 180));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Images/cooltext424525518174062.png"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/Images/APZOTEIPARB7ZD76EVN5CSRGFM.jpeg"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -148,6 +152,7 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JButton loginButton;
