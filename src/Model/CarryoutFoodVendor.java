@@ -16,8 +16,8 @@ public class CarryoutFoodVendor extends FoodVendor {
      * @param location address of the food vendor
      * @param hours hours of operation of the food vendor
      */
-    public CarryoutFoodVendor (String name, String description, String location, String hours){
-        super(name, description, location, hours);
+    public CarryoutFoodVendor (String name, String location, String hours){
+        super(name, location, hours);
         this.carryoutMenu = new ArrayList<CarryoutMenuItem>();
     }
 
