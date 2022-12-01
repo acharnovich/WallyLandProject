@@ -7,6 +7,13 @@ package Model;
 
 import java.util.ArrayList;
 import Model.Attraction;
+import com.google.gson.Gson;
+
+import com.google.gson.reflect.TypeToken;
+
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /**
  * This AttractionsList class will act as a database class to store attraction objects or retrieve them from a JSON file.
@@ -28,16 +35,28 @@ public AttractionsList(ArrayList<Attraction> attList)
  */
 public AttractionsList()
 {   
-  Attraction att0 = new Attraction("Wally's Wacky Shack","A silly fun house for all ages!", "10-10-2022", 4, 0, 43253545, 8, 2);
-  Attraction att1 = new Attraction("Generic Roller Coaster","It's a roller coaster....", "10-10-2022", 25, 10, 56835292, 10, 1);
-  Attraction att2 = new Attraction("Log Ride","A classic log ride, big splashes and bigger smiles", "10-10-2022", 4, 0, 65845251, 6, 1); 
-  this.attList = new ArrayList<Attraction>();
-  attList.add(att0);
-  attList.add(att1);
-  attList.add(att2);
+  Gson gson = new Gson();
+    this.attList = new ArrayList<Attraction>();
+    try{
 
-   
+        Reader reader = Files.newBufferedReader(Paths.get("attractionList.json"));
+
+        ArrayList<Attraction> attractions = new Gson().fromJson(reader, new TypeToken<ArrayList<Attraction>>()
+        {
+        }.getType());
+            
+        for(int i = 0; i < attractions.size(); ++i){
+            attList.add(attractions.get(i));
+        }      
+        reader.close();
+    } 
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    
 }
+
 /**
  * Returns the AllAttractions ArrayList.
  * @return A ArrayList representing all attraction objects stored.

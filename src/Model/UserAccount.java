@@ -1,5 +1,6 @@
 package Model;
 
+import java.io.IOException;
 import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
 
@@ -43,7 +44,7 @@ public class UserAccount extends Person {
         this.ticketHolder = false;
     }
 
-    public int addToSchedule(int partySize, int attractionID) {
+    public int addToSchedule(int partySize, int attractionID) throws IOException {
         // System.out.println("AttractionID String: " + attractionID);
         int attID = attractionID;
         // System.out.println("AttractionID int: " + attID);
@@ -69,7 +70,7 @@ public class UserAccount extends Person {
         }
     }
 
-    public void addToScheduleIfFound(int partySize, int attractionID) {
+    public void addToScheduleIfFound(int partySize, int attractionID) throws IOException {
 
         //System.out.println("AttractionID String: " + attractionID);
         int attID = attractionID;

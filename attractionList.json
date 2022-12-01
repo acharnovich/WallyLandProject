@@ -1,0 +1,53 @@
+[
+  {
+    "name": "Wally\u0027s Wacky Shack",
+    "description": "A silly fun house for all ages!",
+    "date": "10-10-2022",
+    "maxCapacity": 4,
+    "currentCapacity": 0,
+    "attractionID": 43253545,
+    "waitTime": 8,
+    "waitTimeIncrease": 2
+  },
+  {
+    "name": "Generic Roller Coaster",
+    "description": "It\u0027s a roller coaster....",
+    "date": "10-10-2022",
+    "maxCapacity": 25,
+    "currentCapacity": 10,
+    "attractionID": 56835292,
+    "waitTime": 10,
+    "waitTimeIncrease": 1
+  },
+  {
+    "name": "Log Ride",
+    "description": "A classic log ride, big splashes and bigger smiles",
+    "date": "10-10-2022",
+    "maxCapacity": 4,
+    "currentCapacity": 0,
+    "attractionID": 65845251,
+    "waitTime": 6,
+    "waitTimeIncrease": 1
+  },
+  {
+    "name": "Bumper Cars",
+    "description": "Smash into your family and friends!",
+    "date": "10-10-2022",
+    "maxCapacity": 18,
+    "currentCapacity": 14,
+    "attractionID": 15468745,
+    "waitTime": 8,
+    "waitTimeIncrease": 4
+  },
+  {
+    "name": "Wally's Gravity Defier",
+    "description": "A gravitron with a special Wally themed twist",
+    "date": "10-10-2022",
+    "maxCapacity": 16,
+    "currentCapacity": 10,
+    "attractionID": 94587216,
+    "waitTime": 9,
+    "waitTimeIncrease": 3
+  }
+]
+  

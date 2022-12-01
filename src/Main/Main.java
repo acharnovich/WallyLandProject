@@ -16,9 +16,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args)
-    {
-     LoginController login = new LoginController();
-    System.out.println("All Tests Passed! Testing is complete.");
-    System.out.print("TEST Git");
+    {    
+        LoginController login = new LoginController();
+        System.out.println("All Tests Passed! Testing is complete.");
+        System.out.print("TEST Git");
     }
 }

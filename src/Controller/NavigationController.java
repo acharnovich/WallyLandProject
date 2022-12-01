@@ -11,7 +11,10 @@ import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComponent;
 import javax.swing.SwingUtilities;
 
@@ -73,7 +76,11 @@ public class NavigationController {
                     new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-             AttractionsController att = new AttractionsController(navView, activeUser);
+                try {
+                    AttractionsController att = new AttractionsController(navView, activeUser);
+                } catch (IOException ex) {
+                    Logger.getLogger(NavigationController.class.getName()).log(Level.SEVERE, null, ex);
+                }
              
        
                 
