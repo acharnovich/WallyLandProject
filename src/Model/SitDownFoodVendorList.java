@@ -4,10 +4,30 @@
  */
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ambd1
  */
+
 public class SitDownFoodVendorList {
-    
+ private ArrayList<SitDownFoodVendor> vendors;
+
+    public SitDownFoodVendorList(ArrayList<SitDownFoodVendor> vendors) {
+        this.vendors = vendors;
+    }
+
+    public SitDownFoodVendorList() {
+    }
+
+    public ArrayList<SitDownFoodVendor> getVendors() {
+        return vendors;
+    }
+
+    public void setVendors(ArrayList<SitDownFoodVendor> vendors) {
+        this.vendors = vendors;
+    }
+ 
+ 
 }

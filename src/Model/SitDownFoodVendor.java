@@ -60,6 +60,15 @@ public class SitDownFoodVendor extends FoodVendor{
         return reservationTimes;
     }
 
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+    
+
 
 
     /**

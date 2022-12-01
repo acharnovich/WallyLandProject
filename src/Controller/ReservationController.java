@@ -10,7 +10,7 @@ public class ReservationController {
 
     public ReservationController(){
 
-        this.reservationView = new ReservationView();
+        this.reservationView = new ReservationView(vendors.getVendors());
         System.out.println("The Reservation Controller was successfully initiated!");
     }
 }

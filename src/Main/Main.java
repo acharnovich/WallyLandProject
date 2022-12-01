@@ -18,7 +18,5 @@ public class Main {
     public static void main(String[] args)
     {    
         LoginController login = new LoginController();
-        System.out.println("All Tests Passed! Testing is complete.");
-        System.out.print("TEST Git");
     }
 }
