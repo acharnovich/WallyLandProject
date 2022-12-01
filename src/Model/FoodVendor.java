@@ -6,7 +6,6 @@ package Model;
  */
 public abstract class FoodVendor {
     private String name;
-    private String description;
     private String location;
     private String hours;
     private String type;
@@ -14,13 +13,11 @@ public abstract class FoodVendor {
     /**
      * default constructor for a food vendor object
      * @param name name of the food vendor
-     * @param description short description of the food vendor
      * @param location address of the food vendor
      * @param hours hours of operation of the food vendor
      */
-    public FoodVendor (String name, String description, String location, String hours){
+    public FoodVendor (String name, String location, String hours){
         this.name = name;
-        this.description = description;
         this.location = location;
         this.hours = hours;
     }
@@ -45,17 +42,6 @@ public abstract class FoodVendor {
      * retrieves the description of a Food Vendor
      * @return a String containing the description of a food vendor object
      */
-    public String getDescription() {//return the description of a food vendor
-        return description;
-    }
-
-    /**
-     * Sets the description of operation of a Food Vendor
-     * @param description String to be set as a food vendor object's description
-     */
-    public void setDescription(String description) {//set a description of a food vendor
-        this.description = description;
-    }
 
     /**
      * retrieves the location of a Food Vendor
@@ -97,7 +83,7 @@ public abstract class FoodVendor {
     public String toString() {
         return "FoodVendor{" +
                 "name='" + name + '\'' +
-                ", description='" + description + '\'' +
+                ", description='" +
                 ", location='" + location + '\'' +
                 ", hours='" + hours + '\'' +
                 '}';
