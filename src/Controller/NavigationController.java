@@ -92,15 +92,6 @@ public class NavigationController {
         }
     }
 
-    /**
-     * Opens the UI for the user to view food vendors.
-     *
-     * @param event will be pass as a parameter to initialize corresponding
-     * controllers.
-     */
-    public void foodVendorButtonClicked() {
-        FoodVendorController food = new FoodVendorController();
-    }
 
     /**
      * Opens the UI for the user to view carry out order items.
@@ -120,7 +111,7 @@ public class NavigationController {
      */
 
     public void reservationButtonClicked(ActionEvent e) {
-        ReservationController reservation = new ReservationController();
+        
     }
 
     /**
