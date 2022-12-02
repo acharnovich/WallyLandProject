@@ -45,7 +45,6 @@ public class ReservationView extends javax.swing.JPanel {
     }
 
     public void populateComboBox(SitDownFoodVendor selectedRest) {
-        System.out.println(selectedRest.getReservationTimes());
         timeBox.setModel(new DefaultComboBoxModel<>(selectedRest.getReservationTimes().toArray(new String[selectedRest.getReservationTimes().size()])));
 
     }

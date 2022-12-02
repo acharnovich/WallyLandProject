@@ -38,8 +38,10 @@ public class AttractionsController {
     public AttractionsController(NavigationView navView, UserAccount activeUser) throws IOException {
         AttractionsList attractionsModel = new AttractionsList();
         AttractionView att = new AttractionView(attractionsModel.getAttList());
-        navView.remove(navView.getMainPanel());
-        navView.getContentPane().add(att);
+        //navView.getContentPane().remove(navView.getMainPanel());
+        navView.getMainPanel().removeAll();
+        navView.getMainPanel().add(att);
+        navView.repaint();
         navView.revalidate();
         navView.setVisible(true);
         this.activeUser = activeUser;
