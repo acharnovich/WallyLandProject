@@ -24,7 +24,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="480" y="530" width="170" height="-1"/>
+          <AbsoluteConstraints x="440" y="530" width="170" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -86,13 +86,8 @@
     </Container>
     <Component class="javax.swing.JComboBox" name="timeBox">
       <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot; })" type="code"/>
         </Property>
       </Properties>
       <Events>
@@ -103,7 +98,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="670" y="530" width="-1" height="-1"/>
+          <AbsoluteConstraints x="650" y="530" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -113,7 +108,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="360" y="530" width="-1" height="-1"/>
+          <AbsoluteConstraints x="320" y="530" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

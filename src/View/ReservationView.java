@@ -66,7 +66,7 @@ public class ReservationView extends javax.swing.JPanel {
         reserveBtn = new javax.swing.JButton();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(reserveDateTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 530, 170, -1));
+        add(reserveDateTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 530, 170, -1));
 
         restTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -94,16 +94,16 @@ public class ReservationView extends javax.swing.JPanel {
 
         add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 47, 1000, 450));
 
-        timeBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        timeBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "", "", "" }));
         timeBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 timeBoxActionPerformed(evt);
             }
         });
-        add(timeBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 530, -1, -1));
+        add(timeBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 530, -1, -1));
 
         menuBtn.setText("View Menu");
-        add(menuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 530, -1, -1));
+        add(menuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, -1, -1));
 
         reserveBtn.setText("Schedule Reservation ");
         add(reserveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 530, -1, -1));
