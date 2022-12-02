@@ -4,6 +4,14 @@
  */
 package View;
 
+import Model.Attraction;
+import Model.UserAccount;
+import java.util.ArrayList;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author andrewc4
@@ -17,6 +25,35 @@ public class ProfileView extends javax.swing.JPanel {
         initComponents();
     }
 
+    /*
+    public void populateAttractionTable(ArrayList<UserAccount> schAttList){
+        DefaultTableModel model =  (DefaultTableModel) attractionScheduleTable.getModel();
+        Object rowData[] = new Object[5];
+        for(int i = 0; i < schAttList.size(); i++){
+       
+            rowData[0] = schAttList.get(i).getName();
+            rowData[1] = schAttList.get(i).getWaitTime();
+            rowData[2] = schAttList.get(i).getDescription(); // <-- Party Size
+            
+            model.addRow(rowData);
+       }
+        
+    public void populateReservationTable(ArrayList<UserAccount> schResList){
+        DefaultTableModel model =  (DefaultTableModel) reservationScheduleTable.getModel();
+        Object rowData[] = new Object[5];
+        for(int i = 0; i < schResList.size(); i++){
+       
+            rowData[0] = schResList.get(i).getName();
+            rowData[1] = schResList.get(i).getLocation();
+            rowData[2] = schResList.get(i).getTime();
+            
+            model.addRow(rowData);
+       }
+     
+    }
+    
+    */
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,19 +63,189 @@ public class ProfileView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        userName = new javax.swing.JLabel();
+        userEmail = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        attractionScheduleTable = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        reservationScheduleTable = new javax.swing.JTable();
+        userDOB = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        viewTicketButton = new javax.swing.JButton();
+
+        userName.setText("jLabel1");
+
+        userEmail.setText("jLabel2");
+
+        attractionScheduleTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "Wait Time", "Party Size"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(attractionScheduleTable);
+
+        reservationScheduleTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "Location", "Time"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(reservationScheduleTable);
+
+        userDOB.setText("jLabel3");
+
+        jLabel4.setText("Scheduled Attraction");
+
+        jLabel5.setText("Reservations");
+
+        viewTicketButton.setText("View Ticket");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(175, 175, 175)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(195, 195, 195))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(userEmail)
+                            .addComponent(userName)
+                            .addComponent(userDOB))
+                        .addGap(592, 592, 592)
+                        .addComponent(viewTicketButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jScrollPane1, jScrollPane2});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(userName)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userEmail)
+                    .addComponent(viewTicketButton))
+                .addGap(18, 18, 18)
+                .addComponent(userDOB)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jScrollPane1, jScrollPane2});
+
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable attractionScheduleTable;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable reservationScheduleTable;
+    private javax.swing.JLabel userDOB;
+    private javax.swing.JLabel userEmail;
+    private javax.swing.JLabel userName;
+    private javax.swing.JButton viewTicketButton;
     // End of variables declaration//GEN-END:variables
+
+    public JTable getAttractionScheduleTable() {
+        return attractionScheduleTable;
+    }
+
+    public void setAttractionScheduleTable(JTable attractionScheduleTable) {
+        this.attractionScheduleTable = attractionScheduleTable;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    public void setjScrollPane2(JScrollPane jScrollPane2) {
+        this.jScrollPane2 = jScrollPane2;
+    }
+
+    public JTable getReservationScheduleTable() {
+        return reservationScheduleTable;
+    }
+
+    public void setReservationScheduleTable(JTable reservationScheduleTable) {
+        this.reservationScheduleTable = reservationScheduleTable;
+    }
+
+    public JLabel getUserDOB() {
+        return userDOB;
+    }
+
+    public void setUserDOB(JLabel userDOB) {
+        this.userDOB = userDOB;
+    }
+
+    public JLabel getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(JLabel userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public JLabel getUserName() {
+        return userName;
+    }
+
+    public void setUserName(JLabel userName) {
+        this.userName = userName;
+    }
+
 }
