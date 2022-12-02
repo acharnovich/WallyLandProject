@@ -23,9 +23,9 @@ public class ReservationController {
       //  navView.getContentPane().add(reserveView);
       navView.getMainPanel().removeAll();
         navView.getMainPanel().add(reserveView);
-         navView.repaint();
-        navView.revalidate();
-        navView.setVisible(true);
+         navView.getMainPanel().repaint();
+        navView.getMainPanel().revalidate();
+        navView.getMainPanel().setVisible(true);
     
 
         addListeners(reserveView, vendorList);
@@ -40,9 +40,9 @@ public class ReservationController {
                 for(int i = 0; i < vendorList.getVendors().size(); i++){
                 if(reserveView.getRestTbl().getSelectedRow() == vendorList.getVendors().indexOf(i))
              
-               // System.out.println("This is the reserve controler times "+vendorList.getVendors().get(i));
-                    reserveView.populateComboBox(vendorList.getVendors().get(i));
-                }
+              System.out.println("This is the reserve controler times "+vendorList.getVendors().get(i));
+                    reserveView.populateComboBox(vendorList.getVendors().get(i));}
+                
             }
 
 

@@ -41,9 +41,9 @@ public class AttractionsController {
         //navView.getContentPane().remove(navView.getMainPanel());
         navView.getMainPanel().removeAll();
         navView.getMainPanel().add(att);
-        navView.repaint();
-        navView.revalidate();
-        navView.setVisible(true);
+  navView.getMainPanel().repaint();
+        navView.getMainPanel().revalidate();
+        navView.getMainPanel().setVisible(true);
         this.activeUser = activeUser;
 
         addListeners(att);
