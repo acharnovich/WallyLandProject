@@ -6,7 +6,7 @@ package Model;
 
 
 import java.util.ArrayList;
-import Model.Attraction;
+
 import com.google.gson.Gson;
 
 import com.google.gson.reflect.TypeToken;
