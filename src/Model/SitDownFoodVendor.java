@@ -18,11 +18,19 @@ public class SitDownFoodVendor extends FoodVendor{
      * @param hours       hours of operation of the food vendor
      * @param price       indication of price of menu items
      */
+    
+        public SitDownFoodVendor() {
+        super();
+                this.price = price;
+                this.reservationTimes = new ArrayList<String>();
+    }
     public SitDownFoodVendor(String name, String location, String hours, String price) {
         super(name, location, hours);
         this.price = price;
         this.reservationTimes = new ArrayList<String>();
     }
+    
+    
 
     /**
      * get the available reservation times for a sit down food vendor

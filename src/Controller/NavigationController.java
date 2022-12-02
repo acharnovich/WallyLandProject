@@ -80,10 +80,16 @@ public class NavigationController {
                     AttractionsController att = new AttractionsController(navView, activeUser);
                 } catch (IOException ex) {
                     Logger.getLogger(NavigationController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-             
-       
-                
+                }}});
+            navView.getReserveBtn().addActionListener(                
+                    new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    ReservationController reserveController = new ReservationController(navView, activeUser);
+                } catch (IOException ex) {
+                    Logger.getLogger(NavigationController.class.getName()).log(Level.SEVERE, null, ex);
+                }         
 
      }
         });

@@ -6,8 +6,14 @@ package View;
 
 import Model.Attraction;
 import Model.SitDownFoodVendor;
+import com.github.lgooddatepicker.components.DatePicker;
 import java.util.ArrayList;
 import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,25 +29,26 @@ public class ReservationView extends javax.swing.JPanel {
         initComponents();
         populateTable(restList);
     }
-    
-        public void populateTable(ArrayList<SitDownFoodVendor> restList){
-        DefaultTableModel model =  (DefaultTableModel) restTbl.getModel();
+
+    public void populateTable(ArrayList<SitDownFoodVendor> restList) {
+        DefaultTableModel model = (DefaultTableModel) restTbl.getModel();
         Object rowData[] = new Object[4];
-        for(int i = 0; i < restList.size(); i++){
-       
+        for (int i = 0; i < restList.size(); i++) {
+
             rowData[0] = restList.get(i).getName();
             rowData[1] = restList.get(i).getLocation();
             rowData[2] = restList.get(i).getHours();
             rowData[3] = restList.get(i).getPrice();
             model.addRow(rowData);
-       }     
-     
+        }
+
     }
-        public void populateComboBox(ArrayList<SitDownFoodVendor> restList){
-        for(int i = 0; i < restList.get(i).getReservationTimes().size(); i++){
-        timeBox.setModel((ComboBoxModel<String>) restList.get(i).getReservationTimes());
-        
-        }}
+
+    public void populateComboBox(SitDownFoodVendor selectedRest) {
+        System.out.println(selectedRest.getReservationTimes());
+        timeBox.setModel(new DefaultComboBoxModel<>(selectedRest.getReservationTimes().toArray(new String[selectedRest.getReservationTimes().size()])));
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -79,6 +86,11 @@ public class ReservationView extends javax.swing.JPanel {
             }
         });
         restTbl.getTableHeader().setReorderingAllowed(false);
+        restTbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                restTblMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(restTbl);
 
         add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 47, 1000, 450));
@@ -102,6 +114,10 @@ public class ReservationView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_timeBoxActionPerformed
 
+    private void restTblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_restTblMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_restTblMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane3;
@@ -111,4 +127,53 @@ public class ReservationView extends javax.swing.JPanel {
     private javax.swing.JTable restTbl;
     private javax.swing.JComboBox<String> timeBox;
     // End of variables declaration//GEN-END:variables
+
+    public JScrollPane getjScrollPane3() {
+        return jScrollPane3;
+    }
+
+    public void setjScrollPane3(JScrollPane jScrollPane3) {
+        this.jScrollPane3 = jScrollPane3;
+    }
+
+    public JButton getMenuBtn() {
+        return menuBtn;
+    }
+
+    public void setMenuBtn(JButton menuBtn) {
+        this.menuBtn = menuBtn;
+    }
+
+    public JButton getReserveBtn() {
+        return reserveBtn;
+    }
+
+    public void setReserveBtn(JButton reserveBtn) {
+        this.reserveBtn = reserveBtn;
+    }
+
+    public DatePicker getReserveDateTxt() {
+        return reserveDateTxt;
+    }
+
+    public void setReserveDateTxt(DatePicker reserveDateTxt) {
+        this.reserveDateTxt = reserveDateTxt;
+    }
+
+    public JTable getRestTbl() {
+        return restTbl;
+    }
+
+    public void setRestTbl(JTable restTbl) {
+        this.restTbl = restTbl;
+    }
+
+    public JComboBox<String> getTimeBox() {
+        return timeBox;
+    }
+
+    public void setTimeBox(JComboBox<String> timeBox) {
+        this.timeBox = timeBox;
+    }
+
 }

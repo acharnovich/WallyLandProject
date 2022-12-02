@@ -22,6 +22,14 @@ public abstract class FoodVendor {
         this.hours = hours;
     }
 
+    public FoodVendor() {
+                this.name = name;
+        this.location = location;
+        this.hours = hours;
+    }
+    
+    
+
     /**
      * retrieves the name of a Food Vendor
      * @return a String containing the name of the food vendor

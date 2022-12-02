@@ -15,6 +15,10 @@ import java.util.Collections;
 
 public class SitDownFoodVendorList {
  private ArrayList<SitDownFoodVendor> vendors;
+
+    public SitDownFoodVendorList(ArrayList<SitDownFoodVendor> vendors) {
+        this.vendors = new ArrayList<SitDownFoodVendor>();
+    }
     
     public SitDownFoodVendorList() throws IOException{
     this.vendors = new ArrayList<SitDownFoodVendor>();
