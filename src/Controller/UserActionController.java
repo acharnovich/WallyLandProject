@@ -64,7 +64,7 @@ AttractionsList attractionsList = new AttractionsList();
            }
 
        }
-       profileView.displaySchedule(profileAttractions);
+       //profileView.displaySchedule(profileAttractions);
 
    }
 
