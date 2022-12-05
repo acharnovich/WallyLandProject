@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.FoodVendor;
 import Model.SitDownFoodVendor;
 import Model.SitDownFoodVendorList;
 import Model.UserAccount;
@@ -36,13 +37,16 @@ public class ReservationController {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-     
+                SitDownFoodVendor restNameTemp = new SitDownFoodVendor();
                 for(int i = 0; i < vendorList.getVendors().size(); i++){
-                if(reserveView.getRestTbl().getSelectedRow() == vendorList.getVendors().indexOf(i))
-             
-              System.out.println("This is the reserve controler times "+vendorList.getVendors().get(i));
-                    reserveView.populateComboBox(vendorList.getVendors().get(i));}
-                
+                             System.out.println(reserveView.getRestTbl().getModel().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0));
+                     System.out.println(vendorList.getVendors().get(i).getName());
+
+                if(reserveView.getRestTbl().getModel().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).equals(vendorList.getVendors().get(i).getName()))
+                restNameTemp = vendorList.getVendors().get(i);
+              //System.out.println("This is the reserve controler times "+vendorList.getVendors().get(i));
+                   }
+                 reserveView.populateComboBox(restNameTemp);
             }
 
 
