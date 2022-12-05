@@ -20,7 +20,7 @@ public class ProfileList {
         
     }
     public String loadData(){
-        UserAccount testProfile = new UserAccount("Bob Test", "bobtest@gmail.com", "02/19/1978", 123456, "bobtest", "1234",true, new ArrayList<>(), new ArrayList<>(), new ArrayList<parkTicket>());
+        UserAccount testProfile = new UserAccount("Bob Test", "bobtest@gmail.com", "02/19/1978", 123456, "bobtest", "1234",true, new ArrayList<>(), new ArrayList<>(), new ArrayList<parkTicket>(), new ArrayList<SitDownReservation>());
       accountList.add(testProfile);
         return testProfile.toString();
     }
@@ -29,7 +29,7 @@ public class ProfileList {
     {
         this.accountList = new ArrayList<UserAccount>();
         
-        UserAccount testProfile = new UserAccount("Bob Test", "bobtest@gmail.com", "02/19/1978", 123456, "bobtest", "1234",true, new ArrayList<>(), new ArrayList<>(), new ArrayList<parkTicket>());
+        UserAccount testProfile = new UserAccount("Bob Test", "bobtest@gmail.com", "02/19/1978", 123456, "bobtest", "1234",true, new ArrayList<>(), new ArrayList<>(), new ArrayList<parkTicket>(), new ArrayList<SitDownReservation>());
             accountList.add(testProfile);
 
     }

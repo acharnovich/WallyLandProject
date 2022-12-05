@@ -14,6 +14,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
+import Model.SitDownFoodVendor;
+import java.io.Writer;
 
 
 public class SitDownFoodVendorList {
@@ -46,7 +48,22 @@ public class SitDownFoodVendorList {
             ex.printStackTrace();
         }
     }
+    
+    public void updateList()
+    {
+        try
+        {
+            Gson gson = new Gson();
+            Writer writer = Files.newBufferedWriter(Paths.get("sitDownFood.json"));
+            gson.toJson(this, writer);
+            writer.flush();
+            writer.close();
+        } catch (Exception e)
+        {
 
+            e.printStackTrace();
+        }
+    }
 
     public ArrayList<SitDownFoodVendor> getVendors() {
         return vendors;
@@ -54,6 +71,16 @@ public class SitDownFoodVendorList {
 
     public void setVendors(ArrayList<SitDownFoodVendor> vendors) {
         this.vendors = vendors;
+    }
+    
+    public int getSize(){
+        return vendors.size();
+    }
+    
+    public SitDownFoodVendor getVendor(int i){
+        SitDownFoodVendor active = new SitDownFoodVendor();
+        active = vendors.get(i);
+        return active;
     }
  
  

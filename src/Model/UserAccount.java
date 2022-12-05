@@ -20,6 +20,7 @@ public class UserAccount extends Person {
     private boolean authentication;
     private ArrayList<Attraction> schedule;
     private ArrayList<Integer> foodOrders;
+    private ArrayList<SitDownReservation> reservations;
 
     private boolean ticketHolder;
     private ArrayList<parkTicket> ticketsPurchased;
@@ -32,7 +33,7 @@ public class UserAccount extends Person {
      * @param email
      * @param dateOfBirth
      */
-    public UserAccount(String name, String email, String dateOfBirth, int customerID, String username, String password, boolean authentication, ArrayList<Attraction> schedule, ArrayList<Integer> foodOrders, ArrayList<parkTicket> tickets) {
+    public UserAccount(String name, String email, String dateOfBirth, int customerID, String username, String password, boolean authentication, ArrayList<Attraction> schedule, ArrayList<Integer> foodOrders, ArrayList<parkTicket> tickets, ArrayList<SitDownReservation> reservations) {
         super(name, email, dateOfBirth);
         this.customerID = customerID;
         this.username = username;
@@ -42,8 +43,32 @@ public class UserAccount extends Person {
         this.foodOrders = foodOrders;
         this.ticketsPurchased = tickets;
         this.ticketHolder = false;
+        this.reservations = reservations;
     }
 
+    public boolean addReservation(String name, String time, String date) throws IOException{
+        try
+        {
+            SitDownFoodVendorList vendors = new SitDownFoodVendorList();
+            for (int i = 0; i < vendors.getSize(); i++){
+                if(vendors.getVendor(i).getName().equals(name))
+                {
+                    vendors.getVendor(i).removeReservationTime(time);
+                    vendors.updateList();
+                    SitDownReservation res = new SitDownReservation(time, vendors.getVendor(i), date);
+                    this.reservations.add(res);
+                    return true;
+                }
+            }
+
+        } catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+
+        return false;
+    }
+    
     public int addToSchedule(int partySize, int attractionID) throws IOException {
         // System.out.println("AttractionID String: " + attractionID);
         int attID = attractionID;

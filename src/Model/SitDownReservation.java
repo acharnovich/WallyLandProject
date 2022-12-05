@@ -1,22 +1,25 @@
 package Model;
 
 /**
- * Creates a reservation at a sit down food vendor option. Removes the selected reservation from the reservation list
+ * Creates a reservation at a sit down food vendor option.
  * @author ambd1
  */
 public class SitDownReservation {
 
     private int reservationID;
     private String time;//time of the reservation
-    private FoodVendor scheduledVendor;
+    private String date;
+    private SitDownFoodVendor scheduledVendor;
 
     /**
      * New reservation for a time at a sit down food vendor
      * @param time time selected for the reservation
      * @param user user who has made the reservation, time should be added to users schedule
      */
-    public SitDownReservation(String time, Person user){
+    public SitDownReservation(String time, SitDownFoodVendor vendor, String date){
         this.time = time;
+        this.scheduledVendor = vendor;
+        this.date = date;
     }
 
     /**
@@ -34,6 +37,24 @@ public class SitDownReservation {
     public void setTime(String time) {
         this.time = time;
     }
+    
+    public String getDate(){
+        return date;
+    }
+    
+    public void setDate(String date){
+        this.date = date;
+    }
+    
+    public SitDownFoodVendor getVendor(){
+        return scheduledVendor;
+    }
+    
+    public void setVendor(SitDownFoodVendor vendor){
+        this.scheduledVendor = vendor;
+    }
+    
+    
 
     /**
      * prints the information contained in a SitDownReservation object as a text
