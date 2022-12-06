@@ -13,6 +13,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -64,9 +65,10 @@ public class ReservationView extends javax.swing.JPanel {
         timeBox = new javax.swing.JComboBox<>();
         menuBtn = new javax.swing.JButton();
         reserveBtn = new javax.swing.JButton();
+        restSpinner = new javax.swing.JSpinner();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(reserveDateTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 530, 170, -1));
+        add(reserveDateTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 530, 170, -1));
 
         restTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -100,13 +102,14 @@ public class ReservationView extends javax.swing.JPanel {
                 timeBoxActionPerformed(evt);
             }
         });
-        add(timeBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 530, -1, -1));
+        add(timeBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 530, -1, -1));
 
         menuBtn.setText("View Menu");
-        add(menuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, -1, -1));
+        add(menuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 530, -1, -1));
 
         reserveBtn.setText("Schedule Reservation ");
-        add(reserveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 530, -1, -1));
+        add(reserveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 530, -1, -1));
+        add(restSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 530, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void timeBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeBoxActionPerformed
@@ -123,6 +126,7 @@ public class ReservationView extends javax.swing.JPanel {
     private javax.swing.JButton menuBtn;
     private javax.swing.JButton reserveBtn;
     private com.github.lgooddatepicker.components.DatePicker reserveDateTxt;
+    private javax.swing.JSpinner restSpinner;
     private javax.swing.JTable restTbl;
     private javax.swing.JComboBox<String> timeBox;
     // End of variables declaration//GEN-END:variables
@@ -141,6 +145,14 @@ public class ReservationView extends javax.swing.JPanel {
 
     public void setMenuBtn(JButton menuBtn) {
         this.menuBtn = menuBtn;
+    }
+
+    public JSpinner getRestSpinner() {
+        return restSpinner;
+    }
+
+    public void setRestSpinner(JSpinner restSpinner) {
+        this.restSpinner = restSpinner;
     }
 
     public JButton getReserveBtn() {

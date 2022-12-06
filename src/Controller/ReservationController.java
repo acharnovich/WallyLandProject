@@ -61,7 +61,7 @@ public class ReservationController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    activeUser.addReservation(reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).toString(), reserveView.getTimeBox().getSelectedItem().toString(), reserveView.getReserveDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy")));
+                    activeUser.addReservation(reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).toString(), reserveView.getTimeBox().getSelectedItem().toString(), reserveView.getReserveDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy")), (int) reserveView.getRestSpinner().getValue());
                     System.out.println(reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).toString());
                     System.out.println(reserveView.getTimeBox().getSelectedItem().toString());
                     System.out.println(reserveView.getReserveDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy")));
