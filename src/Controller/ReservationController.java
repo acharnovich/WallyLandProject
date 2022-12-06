@@ -12,6 +12,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class ReservationController {
     UserAccount activeUser;
@@ -52,5 +56,26 @@ public class ReservationController {
 
 
         });
+    reserveView.getReserveBtn().addActionListener(
+    new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    activeUser.addReservation(reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).toString(), reserveView.getTimeBox().getSelectedItem().toString(), reserveView.getReserveDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy")));
+                    System.out.println(reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).toString());
+                    System.out.println(reserveView.getTimeBox().getSelectedItem().toString());
+                    System.out.println(reserveView.getReserveDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy")));
+                } catch (IOException ex) {
+                    Logger.getLogger(ReservationController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            
+              
+                
+            }
+        }
+    
+    
+    );
+    
     }
 }

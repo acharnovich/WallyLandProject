@@ -38,7 +38,7 @@ public class SitDownFoodVendorList {
         {
         }.getType());
             
-        for(int i = 0; i < rList.size(); ++i){
+        for(int i = 0; i < rList.size(); i++){
             this.vendors.add(rList.get(i));
         }      
         reader.close();
