@@ -4,6 +4,8 @@
  */
 package View;
 
+import javax.swing.JLabel;
+
 /**
  *
  * @author andrewc4
@@ -15,6 +17,7 @@ public class MenuView extends javax.swing.JFrame {
      */
     public MenuView() {
         initComponents();
+        setVisible(false);
     }
 
     /**
@@ -26,18 +29,15 @@ public class MenuView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        menuPic = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(700, 1000));
+        setPreferredSize(new java.awt.Dimension(700, 1000));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        menuPic.setMaximumSize(new java.awt.Dimension(1414, 2000));
+        getContentPane().add(menuPic, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -520, 1414, 2010));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -77,6 +77,15 @@ public class MenuView extends javax.swing.JFrame {
         });
     }
 
+    public JLabel getMenuPic() {
+        return menuPic;
+    }
+
+    public void setMenuPic(JLabel menuPic) {
+        this.menuPic = menuPic;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel menuPic;
     // End of variables declaration//GEN-END:variables
 }
