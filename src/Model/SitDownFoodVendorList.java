@@ -50,13 +50,17 @@ public class SitDownFoodVendorList {
     }
     
     
-    public void updateList()
+    public void updateList(SitDownFoodVendorList changes)
     {
         try
         {
-            Gson gson = new Gson();
+            ArrayList<SitDownFoodVendor> update = new ArrayList<>();
+            for(int i = 0; i < changes.getSize(); ++i){
+                update.add(changes.getVendor(i));
+            }
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
             Writer writer = Files.newBufferedWriter(Paths.get("sitDownFood.json"));
-            gson.toJson(this, writer);
+            gson.toJson(update, writer);
             writer.flush();
             writer.close();
         } catch (Exception e)
