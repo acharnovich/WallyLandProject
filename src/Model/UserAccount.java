@@ -53,8 +53,8 @@ public class UserAccount extends Person {
             for (int i = 0; i < vendors.getSize(); i++){
                 if(vendors.getVendor(i).getName().equals(name))
                 {
-                    vendors.getVendor(i).removeReservationTime(time);
-                    vendors.updateList();
+                    //vendors.getVendor(i).removeReservationTime(time);
+                    //vendors.updateList();
                     SitDownReservation res = new SitDownReservation(time, vendors.getVendor(i), date);
                     this.reservations.add(res);
                     return true;

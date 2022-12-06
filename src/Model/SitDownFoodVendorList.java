@@ -49,6 +49,7 @@ public class SitDownFoodVendorList {
         }
     }
     
+    
     public void updateList()
     {
         try
@@ -64,6 +65,7 @@ public class SitDownFoodVendorList {
             e.printStackTrace();
         }
     }
+    
 
     public ArrayList<SitDownFoodVendor> getVendors() {
         return vendors;
