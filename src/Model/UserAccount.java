@@ -46,7 +46,7 @@ public class UserAccount extends Person {
         this.reservations = reservations;
     }
 
-    public boolean addReservation(String name, String time, String date) throws IOException{
+    public boolean addReservation(String name, String time, String date, int partySize) throws IOException{
         try
         {
             SitDownFoodVendorList vendors = new SitDownFoodVendorList();
@@ -55,7 +55,7 @@ public class UserAccount extends Person {
                 {
                     //vendors.getVendor(i).removeReservationTime(time);
                     //vendors.updateList();
-                    SitDownReservation res = new SitDownReservation(time, vendors.getVendor(i), date);
+                    SitDownReservation res = new SitDownReservation(time, vendors.getVendor(i), date, partySize);
                     this.reservations.add(res);
                     return true;
                 }

@@ -10,16 +10,19 @@ public class SitDownReservation {
     private String time;//time of the reservation
     private String date;
     private SitDownFoodVendor scheduledVendor;
+    private int partySize;
+
 
     /**
      * New reservation for a time at a sit down food vendor
      * @param time time selected for the reservation
      * @param user user who has made the reservation, time should be added to users schedule
      */
-    public SitDownReservation(String time, SitDownFoodVendor vendor, String date){
+    public SitDownReservation(String time, SitDownFoodVendor vendor, String date, int partySize){
         this.time = time;
         this.scheduledVendor = vendor;
         this.date = date;
+        this.partySize = partySize;
     }
 
     /**
@@ -46,12 +49,28 @@ public class SitDownReservation {
         this.date = date;
     }
     
-    public SitDownFoodVendor getVendor(){
+    public int getReservationID() {
+        return reservationID;
+    }
+
+    public void setReservationID(int reservationID) {
+        this.reservationID = reservationID;
+    }
+
+    public SitDownFoodVendor getScheduledVendor() {
         return scheduledVendor;
     }
-    
-    public void setVendor(SitDownFoodVendor vendor){
-        this.scheduledVendor = vendor;
+
+    public void setScheduledVendor(SitDownFoodVendor scheduledVendor) {
+        this.scheduledVendor = scheduledVendor;
+    }
+
+    public int getPartySize() {
+        return partySize;
+    }
+
+    public void setPartySize(int partySize) {
+        this.partySize = partySize;
     }
     
     
