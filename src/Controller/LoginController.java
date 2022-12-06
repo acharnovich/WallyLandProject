@@ -48,7 +48,7 @@ loginView.getLoginButton().addActionListener(this);
         
        for(int i = 0; i < users.getAccountList().size(); ++i){
            if(users.getAccountList().get(i).getUsername().equals(loginView.getUserText().getText()) && users.getAccountList().get(i).getPassword().equals(loginView.getjPasswordField1().getText())){
-               System.out.print(users.getAccountList().get(i));//printout to disply user info for testing purposes
+              // System.out.print(users.getAccountList().get(i));//printout to disply user info for testing purposes
                this.activeUser =  users.getAccountList().get(i);
                NavigationController nav = new NavigationController(activeUser);
                JComponent comp = (JComponent) e.getSource();
