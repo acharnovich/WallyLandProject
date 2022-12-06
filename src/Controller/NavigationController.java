@@ -61,9 +61,7 @@ public class NavigationController {
             public void actionPerformed(ActionEvent e) {
                
                     PurchaseTicketController purch = new PurchaseTicketController(activeUser);
-                    JComponent comp = (JComponent) e.getSource();
-                   Window win = SwingUtilities.getWindowAncestor(comp);
-                   win.dispose();
+                navView.setVisible(false);
                 
 
             }

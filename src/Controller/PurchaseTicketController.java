@@ -58,6 +58,7 @@ public class PurchaseTicketController implements ActionListener {
        purchView.setVisible(true);
        purchView.getPurchaseTicketBtn().addActionListener(this);
        this.navView = navView;
+       addListeners(purchView, navView);
     }
 
     public PurchaseTicketController(NavigationController navController, NavigationView navView, parkTicket ticketModel, UserAccount activeUser, String validDate) {
@@ -68,7 +69,19 @@ public class PurchaseTicketController implements ActionListener {
         this.validDate = validDate;
     }
     
+    public void addListeners(PurchaseTicketView purchView, NavigationView navView){
+    purchView.getCancelBtn().addActionListener(       new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+             purchView.setVisible(false);
+             purchView.dispose();
+             NavigationController nav = new NavigationController(activeUser);   
+
+            }
+        });
     
+    
+    }
     public boolean validateDate(String selectedDate){
         //validDate = purchView.getDateTxt().getDate().format(DateTimeFormatter.ofPattern("uuuu-MM-dd"));
         

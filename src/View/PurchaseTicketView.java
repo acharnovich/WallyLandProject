@@ -41,8 +41,8 @@ public class PurchaseTicketView extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         qtyTxt = new javax.swing.JSpinner();
         dateTxt = new com.github.lgooddatepicker.components.DatePicker();
+        cancelBtn = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -52,7 +52,7 @@ public class PurchaseTicketView extends javax.swing.JFrame {
                 purchaseTicketBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(purchaseTicketBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, -1, -1));
+        getContentPane().add(purchaseTicketBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, -1, -1));
 
         priceTxt.setText("59.99");
         priceTxt.setEnabled(false);
@@ -88,6 +88,10 @@ public class PurchaseTicketView extends javax.swing.JFrame {
         qtyTxt.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
         getContentPane().add(qtyTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 90, -1));
         getContentPane().add(dateTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 170, -1));
+
+        cancelBtn.setForeground(new java.awt.Color(255, 0, 0));
+        cancelBtn.setText("Cancel");
+        getContentPane().add(cancelBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, -1, -1));
 
         setSize(new java.awt.Dimension(620, 528));
         setLocationRelativeTo(null);
@@ -141,6 +145,7 @@ public class PurchaseTicketView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cancelBtn;
     private com.github.lgooddatepicker.components.DatePicker dateTxt;
     private javax.swing.JTextField emailTxt;
     private javax.swing.JLabel jLabel1;
@@ -191,6 +196,14 @@ public class PurchaseTicketView extends javax.swing.JFrame {
 
     public void setPriceTxt(JTextField priceTxt) {
         this.priceTxt = priceTxt;
+    }
+
+    public JButton getCancelBtn() {
+        return cancelBtn;
+    }
+
+    public void setCancelBtn(JButton cancelBtn) {
+        this.cancelBtn = cancelBtn;
     }
 
 
