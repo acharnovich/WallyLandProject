@@ -84,7 +84,7 @@ String tempName;
 
                 if (reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).equals("Something Special")) {
                     MenuView menu = new MenuView();
-                    ImageIcon image = new ImageIcon(getClass().getResource("/View/Images/Beige and Green Floral Wedding Menu.jpg"));
+                    ImageIcon image = new ImageIcon(getClass().getResource("/View/Images/Beige And Green Simple Restaurant Menu.jpg"));
 
                     menu.dispose();
     
@@ -96,7 +96,7 @@ String tempName;
                     menu.setVisible(true);
                 } if (reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).equals("Bistro du Wally")) {
                     MenuView menu = new MenuView();
-                    ImageIcon image = new ImageIcon(getClass().getResource("/View/Images/Dark Rustic Chalkboard Texture Cafe Menu.jpg"));
+                    ImageIcon image = new ImageIcon(getClass().getResource("/View/Images/Black and Orange Restaurant Menu .jpg"));
 
                     menu.dispose();
                     menu.getMenuPic().setIcon(image);
@@ -107,7 +107,7 @@ String tempName;
                 
                 if (reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).equals("Swagalicious Dinning")) {
                     MenuView menu = new MenuView();
-                    ImageIcon image = new ImageIcon(getClass().getResource("/View/Images/Black and Orange Restaurant Menu .jpg"));
+                    ImageIcon image = new ImageIcon(getClass().getResource("/View/Images/Beige and Green Floral Wedding Menu.jpg"));
 
                     menu.dispose();
                     menu.getMenuPic().setIcon(image);
@@ -129,7 +129,7 @@ String tempName;
                 
                 if (reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).equals("Head Rush Café")) {
                     MenuView menu = new MenuView();
-                    ImageIcon image = new ImageIcon(getClass().getResource("/View/Images/Beige And Green Simple Restaurant Menu.jpg"));
+                    ImageIcon image = new ImageIcon(getClass().getResource("/View/Images/Dark Rustic Chalkboard Texture Cafe Menu.jpg"));
 
                     menu.dispose();
                     menu.getMenuPic().setIcon(image);
