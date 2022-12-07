@@ -41,7 +41,7 @@ public class ProfileView extends javax.swing.JPanel {
        
             rowData[0] = schAttList.get(i).getName();
             rowData[1] = schAttList.get(i).getWaitTime();
-            rowData[2] = schAttList.get(i).getDescription(); // <-- Party Size
+            rowData[2] = schAttList.get(i).getPartySize(); // <-- Party Size
             
             model.addRow(rowData);
        }

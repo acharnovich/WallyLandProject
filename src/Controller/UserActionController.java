@@ -37,7 +37,7 @@ ProfileList profileList = new ProfileList();
         navView.getMainPanel().repaint();
         navView.getMainPanel().revalidate();
         navView.getMainPanel().setVisible(true);
-        //addListeners(profileView);
+        addListeners(profileView);
 
     }
 
@@ -46,16 +46,17 @@ ProfileList profileList = new ProfileList();
         this.profileList = profileList;
     }
 
-   /*  public void addListeners(ProfileView pv) {
+     public void addListeners(ProfileView pv) {
         pv.getViewTicketButton().addActionListener(
                 new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    JOptionPane.showMessageDialog(null, activeUser.viewTicketsPurchased(activeUser.getTicketsPurchased(), Integer.parseInt(purchView.getQtyTxt().getValue().toString())));
-                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(null,
+                            activeUser.viewTicketsPurchased(activeUser.getTicketsPurchased(), activeUser.getTicketsPurchased().size()));
+                } catch (Exception ex) {
                     Logger.getLogger(UserActionController.class.getName()).log(Level.SEVERE, null, ex);
-                }}});} */
+                }}});} 
     /**
  * This method removes attractions from a user profile schedule.
  * @param attractionID represents the ID of an event to be removed from user profile.
