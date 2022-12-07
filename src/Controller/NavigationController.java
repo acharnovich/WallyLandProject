@@ -68,7 +68,7 @@ public class NavigationController {
         });
         if (activeUser.isTicketHolder() == true) {
             navView.getSchAttBtn().setEnabled(true);
-            navView.getOrderBtn().setEnabled(true);
+            navView.getViewProfileBtn().setEnabled(true);
             navView.getReserveBtn().setEnabled(true);
             navView.getSchAttBtn().addActionListener(                
                     new ActionListener() {
@@ -85,6 +85,18 @@ public class NavigationController {
             public void actionPerformed(ActionEvent e) {
                 try {
                     ReservationController reserveController = new ReservationController(navView, activeUser);
+                } catch (IOException ex) {
+                    Logger.getLogger(NavigationController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+     }
+        });
+            
+             navView.getViewProfileBtn().addActionListener(                
+                    new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    UserActionController userActionController = new UserActionController(navView, activeUser);
                 } catch (IOException ex) {
                     Logger.getLogger(NavigationController.class.getName()).log(Level.SEVERE, null, ex);
                 }         

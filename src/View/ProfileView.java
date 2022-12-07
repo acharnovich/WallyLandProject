@@ -5,8 +5,10 @@
 package View;
 
 import Model.Attraction;
+import Model.SitDownReservation;
 import Model.UserAccount;
 import java.util.ArrayList;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -21,12 +23,18 @@ public class ProfileView extends javax.swing.JPanel {
     /**
      * Creates new form ProfileView
      */
-    public ProfileView() {
+    public ProfileView(ArrayList<Attraction> schedule, ArrayList<SitDownReservation> reservations, UserAccount activeUser) {
         initComponents();
+        userName.setText(activeUser.getName());
+        userEmail.setText(activeUser.getEmail());
+        userDOB.setText(activeUser.getDateOfBirth());
+        populateAttractionTable(schedule);
+        populateReservationTable(reservations);
     }
 
-    /*
-    public void populateAttractionTable(ArrayList<UserAccount> schAttList){
+    public ProfileView(){}
+    
+    public void populateAttractionTable(ArrayList<Attraction> schAttList){
         DefaultTableModel model =  (DefaultTableModel) attractionScheduleTable.getModel();
         Object rowData[] = new Object[5];
         for(int i = 0; i < schAttList.size(); i++){
@@ -37,14 +45,15 @@ public class ProfileView extends javax.swing.JPanel {
             
             model.addRow(rowData);
        }
-        
-    public void populateReservationTable(ArrayList<UserAccount> schResList){
+    }
+    
+    public void populateReservationTable(ArrayList<SitDownReservation> schResList){
         DefaultTableModel model =  (DefaultTableModel) reservationScheduleTable.getModel();
         Object rowData[] = new Object[5];
         for(int i = 0; i < schResList.size(); i++){
        
-            rowData[0] = schResList.get(i).getName();
-            rowData[1] = schResList.get(i).getLocation();
+            rowData[0] = schResList.get(i).getScheduledVendor().getName();
+            rowData[1] = schResList.get(i).getScheduledVendor().getLocation();
             rowData[2] = schResList.get(i).getTime();
             
             model.addRow(rowData);
@@ -52,7 +61,7 @@ public class ProfileView extends javax.swing.JPanel {
      
     }
     
-    */
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,9 +83,13 @@ public class ProfileView extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         viewTicketButton = new javax.swing.JButton();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         userName.setText("jLabel1");
+        add(userName, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 55, -1, -1));
 
         userEmail.setText("jLabel2");
+        add(userEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 92, -1, -1));
 
         attractionScheduleTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -96,6 +109,8 @@ public class ProfileView extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(attractionScheduleTable);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 193, 417, 331));
+
         reservationScheduleTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -114,69 +129,29 @@ public class ProfileView extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(reservationScheduleTable);
 
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(501, 193, 417, 331));
+
         userDOB.setText("jLabel3");
+        add(userDOB, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 130, -1, -1));
 
         jLabel4.setText("Scheduled Attraction");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 171, -1, -1));
 
         jLabel5.setText("Reservations");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(682, 171, -1, -1));
 
         viewTicketButton.setText("View Ticket");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(175, 175, 175)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(195, 195, 195))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(userEmail)
-                            .addComponent(userName)
-                            .addComponent(userDOB))
-                        .addGap(592, 592, 592)
-                        .addComponent(viewTicketButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jScrollPane1, jScrollPane2});
-
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(userName)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userEmail)
-                    .addComponent(viewTicketButton))
-                .addGap(18, 18, 18)
-                .addComponent(userDOB)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(22, 22, 22))
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jScrollPane1, jScrollPane2});
-
+        viewTicketButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewTicketButtonActionPerformed(evt);
+            }
+        });
+        add(viewTicketButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(682, 89, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void viewTicketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewTicketButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_viewTicketButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -248,4 +223,13 @@ public class ProfileView extends javax.swing.JPanel {
         this.userName = userName;
     }
 
+    public JButton getViewTicketButton() {
+        return viewTicketButton;
+    }
+
+    public void setViewTicketButton(JButton viewTicketButton) {
+        this.viewTicketButton = viewTicketButton;
+    }
+
+    
 }

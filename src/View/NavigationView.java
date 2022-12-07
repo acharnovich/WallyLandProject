@@ -33,7 +33,7 @@ public class NavigationView extends javax.swing.JFrame {
         jToolBar1 = new javax.swing.JToolBar();
         purchaseButton = new javax.swing.JButton();
         schAttBtn = new javax.swing.JButton();
-        orderBtn = new javax.swing.JButton();
+        viewProfileBtn = new javax.swing.JButton();
         reserveBtn = new javax.swing.JButton();
         mainPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -64,14 +64,14 @@ public class NavigationView extends javax.swing.JFrame {
         });
         jToolBar1.add(schAttBtn);
 
-        orderBtn.setText("Order Food");
-        orderBtn.setEnabled(false);
-        orderBtn.addActionListener(new java.awt.event.ActionListener() {
+        viewProfileBtn.setText("View Profile");
+        viewProfileBtn.setEnabled(false);
+        viewProfileBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                orderBtnActionPerformed(evt);
+                viewProfileBtnActionPerformed(evt);
             }
         });
-        jToolBar1.add(orderBtn);
+        jToolBar1.add(viewProfileBtn);
 
         reserveBtn.setText("Reservations");
         reserveBtn.setEnabled(false);
@@ -102,9 +102,9 @@ public class NavigationView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_schAttBtnActionPerformed
 
-    private void orderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderBtnActionPerformed
+    private void viewProfileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewProfileBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_orderBtnActionPerformed
+    }//GEN-LAST:event_viewProfileBtnActionPerformed
 
     private void reserveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveBtnActionPerformed
         // TODO add your handling code here:
@@ -149,10 +149,10 @@ public class NavigationView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JPanel mainPanel;
-    private javax.swing.JButton orderBtn;
     private javax.swing.JButton purchaseButton;
     private javax.swing.JButton reserveBtn;
     private javax.swing.JButton schAttBtn;
+    private javax.swing.JButton viewProfileBtn;
     // End of variables declaration//GEN-END:variables
 
     public JButton getPurchaseButton() {
@@ -181,12 +181,12 @@ public class NavigationView extends javax.swing.JFrame {
 
 
 
-    public JButton getOrderBtn() {
-        return orderBtn;
+    public JButton getViewProfileBtn() {
+        return viewProfileBtn;
     }
 
-    public void setOrderBtn(JButton orderBtn) {
-        this.orderBtn = orderBtn;
+    public void setViewProfileBtn(JButton viewProfileBtn) {
+        this.viewProfileBtn = viewProfileBtn;
     }
 
     public JButton getReserveBtn() {

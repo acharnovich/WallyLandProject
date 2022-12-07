@@ -258,6 +258,16 @@ public class UserAccount extends Person {
         this.schedule = schedule;
     }
 
+    public ArrayList<SitDownReservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(ArrayList<SitDownReservation> reservations) {
+        this.reservations = reservations;
+    }
+    
+    
+
     /**
      * Get the orders for person
      *

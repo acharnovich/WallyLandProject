@@ -2,21 +2,42 @@
 package Controller;
 import Model.*;
 import View.AttractionView;
+import View.NavigationView;
 import View.ProfileView;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  * This controller enables the to perform actions such schedule attractions, reservations, and purchase tickets. 
  * This class modifies the user profile that is currently logged in.
  * @author tpn352
  */
 public class UserActionController {
+    
+    UserAccount activeUser;
+    ProfileView profileView;
 /**
  * This is the default constructor that will be used to initiate variables and other controllers to pass user actions.
  */
 ProfileList profileList = new ProfileList();
-public UserActionController()
+    public UserActionController(){}
+    
+    public UserActionController(NavigationView navView, UserAccount activeUser)throws IOException
     {
+        this.activeUser = activeUser;
+        ProfileView profileView = new ProfileView(activeUser.getSchedule(),activeUser.getReservations(), activeUser );
+      
+        navView.getMainPanel().removeAll();
+        navView.getMainPanel().add(profileView);
+        navView.getMainPanel().repaint();
+        navView.getMainPanel().revalidate();
+        navView.getMainPanel().setVisible(true);
+        //addListeners(profileView);
 
     }
 
@@ -25,6 +46,16 @@ public UserActionController()
         this.profileList = profileList;
     }
 
+   /*  public void addListeners(ProfileView pv) {
+        pv.getViewTicketButton().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    JOptionPane.showMessageDialog(null, activeUser.viewTicketsPurchased(activeUser.getTicketsPurchased(), Integer.parseInt(purchView.getQtyTxt().getValue().toString())));
+                } catch (IOException ex) {
+                    Logger.getLogger(UserActionController.class.getName()).log(Level.SEVERE, null, ex);
+                }}});} */
     /**
  * This method removes attractions from a user profile schedule.
  * @param attractionID represents the ID of an event to be removed from user profile.
