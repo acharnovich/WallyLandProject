@@ -24,6 +24,7 @@ public class Attraction {
     private int attractionID;
     private int waitTime;
     private int waitTimeIncrease;
+    private int partySize;
 
     /**
      * This is the default constructor for Attraction
@@ -57,6 +58,7 @@ public class Attraction {
         this.attractionID = attractionID;
         this.waitTime = waitTime;
         this.waitTimeIncrease = waitTimeIncrease;
+        this.partySize = 0;
     }
 
     public void increaseCapacity(int partySize){
@@ -200,6 +202,14 @@ public class Attraction {
 
     public void setWaitTimeIncrease(int waitTimeIncrease) {
         this.waitTimeIncrease = waitTimeIncrease;
+    }
+    
+    public int getPartySize() {
+        return partySize;
+    }
+
+    public void setPartySize(int partySize) {
+        this.partySize = partySize;
     }
 
 }

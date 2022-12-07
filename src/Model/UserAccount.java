@@ -108,6 +108,7 @@ public class UserAccount extends Person {
         for (int i = 0; i < currentAttractions.getAttList().size(); i++) {
             if (attID == currentAttractions.getAtt(i).getAttractionID()) {
                 toSchedule = currentAttractions.getAtt(i);
+                toSchedule.setPartySize(partySize);
                 this.addScheduledAttraction(toSchedule);
                 toSchedule.increaseCapacity(partySize);
                 System.out.println("This is the test ATT: " + toSchedule.toString());
