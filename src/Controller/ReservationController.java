@@ -60,9 +60,6 @@ String tempName;
             public void mouseClicked(MouseEvent e) {
                 SitDownFoodVendor restNameTemp = new SitDownFoodVendor();
                 for (int i = 0; i < vendorList.getVendors().size(); i++) {
-                    System.out.println(reserveView.getRestTbl().getModel().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0));
-                    System.out.println(vendorList.getVendors().get(i).getName());
-
                     if (reserveView.getRestTbl().getModel().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).equals(vendorList.getVendors().get(i).getName())) {
                         restNameTemp = vendorList.getVendors().get(i);
                     }
@@ -153,7 +150,7 @@ String tempName;
             public void actionPerformed(ActionEvent e) {
                 try {
                     activeUser.addReservation(reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).toString(), reserveView.getTimeBox().getSelectedItem().toString(), reserveView.getReserveDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy")), (int) reserveView.getRestSpinner().getValue());
-
+                    JOptionPane.showMessageDialog(null, "This reservation was scheduled successfully. You have added \n" + reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).toString() + " to your schedule for a party of " + reserveView.getRestSpinner().getValue() + " at " + reserveView.getTimeBox().getSelectedItem().toString() + " of "+ reserveView.getReserveDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy")), "Reservation Scheduled!", JOptionPane.PLAIN_MESSAGE);
                 } catch (IOException ex) {
                     Logger.getLogger(ReservationController.class.getName()).log(Level.SEVERE, null, ex);
                 }
