@@ -34,7 +34,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 public class ReservationController {
-
+String tempName;
     UserAccount activeUser;
 
     public ReservationController(NavigationView navView, UserAccount activeUser) throws IOException {
@@ -53,8 +53,9 @@ public class ReservationController {
     }
 
     public void addListeners(ReservationView reserveView, SitDownFoodVendorList vendorList) {
+        
         reserveView.getRestTbl().addMouseListener(new MouseAdapter() {
-
+            
             @Override
             public void mouseClicked(MouseEvent e) {
                 SitDownFoodVendor restNameTemp = new SitDownFoodVendor();
@@ -67,37 +68,21 @@ public class ReservationController {
                     }
                     //System.out.println("This is the reserve controler times "+vendorList.getVendors().get(i));
                 }
-                String tempName = restNameTemp.getName();
-                addViewListener(reserveView, tempName);
+            
+                
                 reserveView.populateComboBox(restNameTemp);
             }
-
-        });
-        reserveView.getReserveBtn().addActionListener(
-                new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    activeUser.addReservation(reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).toString(), reserveView.getTimeBox().getSelectedItem().toString(), reserveView.getReserveDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy")), (int) reserveView.getRestSpinner().getValue());
-
-                } catch (IOException ex) {
-                    Logger.getLogger(ReservationController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-            }
+                
         }
+      
         );
-
-    }
-
-    public void addViewListener(ReservationView reserveView, String menuHolder) {
-
-        reserveView.getMenuBtn().addActionListener(
+        
+         reserveView.getMenuBtn().addActionListener(
                 new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (menuHolder.equals("Something Special")) {
+                if (reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).equals("Something Special")) {
                     MenuView menu = new MenuView();
                     ImageIcon image = new ImageIcon(getClass().getResource("/View/Images/Beige and Green Floral Wedding Menu.jpg"));
 
@@ -109,7 +94,7 @@ public class ReservationController {
                     menu.repaint();
                    
                     menu.setVisible(true);
-                } if (menuHolder.equals("Bistro du Wally")) {
+                } if (reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).equals("Bistro du Wally")) {
                     MenuView menu = new MenuView();
                     ImageIcon image = new ImageIcon(getClass().getResource("/View/Images/Dark Rustic Chalkboard Texture Cafe Menu.jpg"));
 
@@ -120,7 +105,7 @@ public class ReservationController {
                     menu.setVisible(true);
                 }
                 
-                if (menuHolder.equals("Swagalicious Dinning")) {
+                if (reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).equals("Swagalicious Dinning")) {
                     MenuView menu = new MenuView();
                     ImageIcon image = new ImageIcon(getClass().getResource("/View/Images/Black and Orange Restaurant Menu .jpg"));
 
@@ -131,7 +116,7 @@ public class ReservationController {
                     menu.setVisible(true);
                 }
                 
-                if (menuHolder.equals("Wally's Quick Burger")) {
+                if (reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).equals("Wally's Quick Burger")) {
                     MenuView menu = new MenuView();
                     ImageIcon image = new ImageIcon(getClass().getResource("/View/Images/Black & Orange Creative Modern Fast Food Menu.jpg"));
 
@@ -142,7 +127,7 @@ public class ReservationController {
                     menu.setVisible(true);
                 }
                 
-                if (menuHolder.equals("Head Rush Café")) {
+                if (reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).equals("Head Rush Café")) {
                     MenuView menu = new MenuView();
                     ImageIcon image = new ImageIcon(getClass().getResource("/View/Images/Beige And Green Simple Restaurant Menu.jpg"));
 
@@ -162,6 +147,22 @@ public class ReservationController {
 
         }
         );
+        reserveView.getReserveBtn().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    activeUser.addReservation(reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).toString(), reserveView.getTimeBox().getSelectedItem().toString(), reserveView.getReserveDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy")), (int) reserveView.getRestSpinner().getValue());
+
+                } catch (IOException ex) {
+                    Logger.getLogger(ReservationController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+        }
+        );
 
     }
+
+  
 }
