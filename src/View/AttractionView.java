@@ -73,6 +73,8 @@ public AttractionView(ArrayList<Attraction> attList) {
                 return canEdit [columnIndex];
             }
         });
+        attractionTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        attractionTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         attractionTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(attractionTable);
         if (attractionTable.getColumnModel().getColumnCount() > 0) {

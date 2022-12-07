@@ -28,6 +28,7 @@ public class ReservationView extends javax.swing.JPanel {
      */
     public ReservationView(ArrayList<SitDownFoodVendor> restList) {
         initComponents();
+    
         populateTable(restList);
     }
 
@@ -66,9 +67,12 @@ public class ReservationView extends javax.swing.JPanel {
         menuBtn = new javax.swing.JButton();
         reserveBtn = new javax.swing.JButton();
         restSpinner = new javax.swing.JSpinner();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(reserveDateTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 530, 170, -1));
+        add(reserveDateTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, 170, 40));
 
         restTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -86,6 +90,8 @@ public class ReservationView extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        restTbl.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        restTbl.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         restTbl.getTableHeader().setReorderingAllowed(false);
         restTbl.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -96,20 +102,36 @@ public class ReservationView extends javax.swing.JPanel {
 
         add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 47, 1000, 450));
 
-        timeBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "", "", "" }));
+        timeBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
         timeBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 timeBoxActionPerformed(evt);
             }
         });
-        add(timeBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 530, -1, -1));
+        add(timeBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 520, -1, 40));
 
         menuBtn.setText("View Menu");
-        add(menuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 530, -1, -1));
+        add(menuBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 520, -1, 40));
 
         reserveBtn.setText("Schedule Reservation ");
-        add(reserveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 530, -1, -1));
-        add(restSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 530, -1, -1));
+        reserveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reserveBtnActionPerformed(evt);
+            }
+        });
+        add(reserveBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 520, -1, 40));
+
+        restSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
+        add(restSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 520, -1, 40));
+
+        jLabel1.setText("Date:");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 530, -1, -1));
+
+        jLabel2.setText("Time:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 530, -1, -1));
+
+        jLabel3.setText("Party Size:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 530, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void timeBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeBoxActionPerformed
@@ -120,8 +142,15 @@ public class ReservationView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_restTblMouseClicked
 
+    private void reserveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reserveBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reserveBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton menuBtn;
     private javax.swing.JButton reserveBtn;

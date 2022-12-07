@@ -55,10 +55,12 @@ public class AttractionsController {
                 new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                att.getAttractionTable().getSelectedRow();
-                System.out.print(att.getAttractionTable().getSelectedRow());
-                if ((int) att.getPartySpinner().getValue() > 0 && att.getAttractionTable().getSelectedRow() >= 0) {
-
+                
+                 if(att.getAttractionTable().getSelectedRow() < 0){
+                 JOptionPane.showMessageDialog(null, "Please make sure a attraction is selected.", "Error", JOptionPane.ERROR_MESSAGE);
+                 }else{
+                if ((int) att.getPartySpinner().getValue() > 0 && att.getAttractionTable().getSelectedRow() >=0) {
+                        att.getAttractionTable().getSelectedRow();
                     try {
                         if (activeUser.addToSchedule((int) att.getPartySpinner().getValue(), Integer.valueOf(att.getAttractionTable().getModel().getValueAt(att.getAttractionTable().getSelectedRow(), 0).toString())) == 0) {
                             JOptionPane.showMessageDialog(null, "This attraction was added successfully. You have added \n" + att.getAttractionTable().getModel().getValueAt(att.getAttractionTable().getSelectedRow(), 1).toString() + " to your schedule for a party of " + att.getPartySpinner().getValue() + ".", "Attraction Scheduled!", JOptionPane.PLAIN_MESSAGE);
@@ -75,7 +77,7 @@ public class AttractionsController {
                 } catch (IOException ex) {
                     Logger.getLogger(AttractionsController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            }
+            }}
         });
 
     }
