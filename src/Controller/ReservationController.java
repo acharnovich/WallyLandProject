@@ -165,8 +165,8 @@ public class ReservationController {
                 new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (reserveView.getRestTbl().getSelectedRow() < 0 || reserveView.getTimeBox().getSelectedItem().equals(null) || reserveView.getReserveDateTxt().getDate().equals(null)) {
-                    JOptionPane.showMessageDialog(null, "Please make sure a attraction, time, and date is selected.", "Error", JOptionPane.ERROR_MESSAGE);
+                if (reserveView.getRestTbl().getSelectedRow() < 0 || reserveView.getTimeBox().getSelectedItem().equals(null) || reserveView.getReserveDateTxt().getDate()==null) {
+                    JOptionPane.showMessageDialog(null, "Please make sure a reservation, time, and date is selected.", "Error", JOptionPane.ERROR_MESSAGE);
                 } else {
                     String dateFormat = reserveView.getReserveDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy"));
 
