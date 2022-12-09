@@ -73,7 +73,6 @@ ProfileList profileList = new ProfileList();
 public void addToScheduleClicked(int eventID, String userID)
 {
     //userID will be in for loop, if userID equals a userID found in profile list, add this eventID to that profile.
-    System.out.println("Starting user action view schedule test.");
     //profileList.getAccountList().get(0).getSchedule().add(eventID);
 
 
