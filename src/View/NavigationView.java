@@ -33,8 +33,8 @@ public class NavigationView extends javax.swing.JFrame {
         jToolBar1 = new javax.swing.JToolBar();
         purchaseButton = new javax.swing.JButton();
         schAttBtn = new javax.swing.JButton();
-        viewProfileBtn = new javax.swing.JButton();
         reserveBtn = new javax.swing.JButton();
+        viewProfileBtn = new javax.swing.JButton();
         mainPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -64,15 +64,6 @@ public class NavigationView extends javax.swing.JFrame {
         });
         jToolBar1.add(schAttBtn);
 
-        viewProfileBtn.setText("View Profile");
-        viewProfileBtn.setEnabled(false);
-        viewProfileBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewProfileBtnActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(viewProfileBtn);
-
         reserveBtn.setText("Reservations");
         reserveBtn.setEnabled(false);
         reserveBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -81,6 +72,15 @@ public class NavigationView extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(reserveBtn);
+
+        viewProfileBtn.setText("View Profile");
+        viewProfileBtn.setEnabled(false);
+        viewProfileBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewProfileBtnActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(viewProfileBtn);
 
         getContentPane().add(jToolBar1, java.awt.BorderLayout.PAGE_START);
 

@@ -34,6 +34,7 @@ public class MenuView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 1000));
         setPreferredSize(new java.awt.Dimension(700, 1000));
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         menuPic.setMaximumSize(new java.awt.Dimension(1414, 2000));

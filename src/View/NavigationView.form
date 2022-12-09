@@ -58,15 +58,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="schAttBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="viewProfileBtn">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="View Profile"/>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewProfileBtnActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JButton" name="reserveBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Reservations"/>
@@ -74,6 +65,15 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reserveBtnActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="viewProfileBtn">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="View Profile"/>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewProfileBtnActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
