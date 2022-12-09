@@ -106,6 +106,20 @@ public class NavigationController {
             //navView.getOrderBtn().addActionListener(this);
             // navView.getReserveBtn().addActionListener(this);
         }
+     navView.getHomeBtn().addActionListener(
+                new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+             navView.setVisible(false);
+                            JComponent comp = (JComponent) e.getSource();
+                            Window win = SwingUtilities.getWindowAncestor(comp);
+                            win.dispose();
+         NavigationController nav = new NavigationController(activeUser);     
+       
+                
+
+            }
+        });
     }
 
 

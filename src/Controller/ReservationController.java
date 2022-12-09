@@ -189,6 +189,7 @@ public class ReservationController {
                              if((int) reserveView.getRestSpinner().getValue() <= activeUser.getTicketsPurchased().size()){
                             activeUser.addReservation(reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).toString(), reserveView.getTimeBox().getSelectedItem().toString(), reserveView.getReserveDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy")), (int) reserveView.getRestSpinner().getValue());
                             JOptionPane.showMessageDialog(null, "This reservation was scheduled successfully. You have added \n" + reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).toString() + " to your schedule for a party of " + reserveView.getRestSpinner().getValue() + " at " + reserveView.getTimeBox().getSelectedItem().toString() + " of " + reserveView.getReserveDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy")), "Reservation Scheduled!", JOptionPane.PLAIN_MESSAGE);
+                            reserveView.setVisible(false);
                             JComponent comp = (JComponent) e.getSource();
                             Window win = SwingUtilities.getWindowAncestor(comp);
                             win.dispose();

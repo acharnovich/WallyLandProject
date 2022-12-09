@@ -31,6 +31,7 @@ public class NavigationView extends javax.swing.JFrame {
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
+        homeBtn = new javax.swing.JButton();
         purchaseButton = new javax.swing.JButton();
         schAttBtn = new javax.swing.JButton();
         reserveBtn = new javax.swing.JButton();
@@ -43,6 +44,17 @@ public class NavigationView extends javax.swing.JFrame {
 
         jToolBar1.setEnabled(false);
         jToolBar1.setFocusable(false);
+
+        homeBtn.setText("Home");
+        homeBtn.setFocusable(false);
+        homeBtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        homeBtn.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        homeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeBtnActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(homeBtn);
 
         purchaseButton.setText("Purchase Tickets");
         purchaseButton.setFocusable(false);
@@ -110,6 +122,10 @@ public class NavigationView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_reserveBtnActionPerformed
 
+    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_homeBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -146,6 +162,7 @@ public class NavigationView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton homeBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JPanel mainPanel;
@@ -177,6 +194,14 @@ public class NavigationView extends javax.swing.JFrame {
 
     public void setMainPanel(JPanel mainPanel) {
         this.mainPanel = mainPanel;
+    }
+
+    public JButton getHomeBtn() {
+        return homeBtn;
+    }
+
+    public void setHomeBtn(JButton homeBtn) {
+        this.homeBtn = homeBtn;
     }
 
 
