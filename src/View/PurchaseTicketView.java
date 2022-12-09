@@ -85,7 +85,7 @@ public class PurchaseTicketView extends javax.swing.JFrame {
         jLabel4.setText("Purchase Ticket Form");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, -1, -1));
 
-        qtyTxt.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
+        qtyTxt.setModel(new javax.swing.SpinnerNumberModel(1, 1, 20, 1));
         getContentPane().add(qtyTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 90, -1));
         getContentPane().add(dateTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 170, -1));
 

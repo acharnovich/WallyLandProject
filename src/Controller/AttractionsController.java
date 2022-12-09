@@ -62,10 +62,12 @@ public class AttractionsController {
                 if ((int) att.getPartySpinner().getValue() > 0 && att.getAttractionTable().getSelectedRow() >=0) {
                         att.getAttractionTable().getSelectedRow();
                     try {
+                        if((int) att.getPartySpinner().getValue() <= activeUser.getTicketsPurchased().size()){
                         if (activeUser.addToSchedule((int) att.getPartySpinner().getValue(), Integer.valueOf(att.getAttractionTable().getModel().getValueAt(att.getAttractionTable().getSelectedRow(), 0).toString())) == 0) {
                             JOptionPane.showMessageDialog(null, "This attraction was added successfully. You have added \n" + att.getAttractionTable().getModel().getValueAt(att.getAttractionTable().getSelectedRow(), 1).toString() + " to your schedule for a party of " + att.getPartySpinner().getValue() + ".", "Attraction Scheduled!", JOptionPane.PLAIN_MESSAGE);
-                        } else if (activeUser.addToSchedule((int) att.getPartySpinner().getValue(), Integer.valueOf(att.getAttractionTable().getModel().getValueAt(att.getAttractionTable().getSelectedRow(), 0).toString())) == 1) {
-                            JOptionPane.showMessageDialog(null, "Attraction not found or no longer available.", "Attraction Error!", JOptionPane.ERROR_MESSAGE);
+                       }} else{
+                      JOptionPane.showMessageDialog(null, "The party size must be less than or equal to the amount of tickets purchase.", "Attraction Scheduled!", JOptionPane.ERROR_MESSAGE);
+
                         }
                     } catch (IOException ex) {
                         Logger.getLogger(AttractionsController.class.getName()).log(Level.SEVERE, null, ex);
