@@ -72,9 +72,7 @@ public class UserAccount extends Person {
     }
     
     public int addToSchedule(int partySize, int attractionID) throws IOException {
-        // System.out.println("AttractionID String: " + attractionID);
         int attID = attractionID;
-        // System.out.println("AttractionID int: " + attID);
         AttractionsList currentAttractions = new AttractionsList();
 
         Attraction toSchedule = new Attraction();
@@ -99,9 +97,7 @@ public class UserAccount extends Person {
 
     public void addToScheduleIfFound(int partySize, int attractionID) throws IOException {
 
-        //System.out.println("AttractionID String: " + attractionID);
         int attID = attractionID;
-        //System.out.println("AttractionID int: " + attID);
         AttractionsList currentAttractions = new AttractionsList();
 
         Attraction toSchedule = new Attraction();
@@ -113,11 +109,8 @@ public class UserAccount extends Person {
                 toSchedule.setPartySize(partySize);
                 this.addScheduledAttraction(toSchedule);
                 toSchedule.increaseCapacity(partySize);
-                System.out.println("This is the test ATT: " + toSchedule.toString());
-                System.out.println("Size of Schedule: " + this.schedule.size());
-            } else {
-                System.out.println("Not Found");
             }
+            
 
             //this.addScheduledAttraction(toSchedule);
             //toSchedule.increaseCapacity(partySize);
