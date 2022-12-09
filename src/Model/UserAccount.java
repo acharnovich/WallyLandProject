@@ -184,6 +184,16 @@ public class UserAccount extends Person {
     public void addScheduledAttraction(Attraction active) {
         this.schedule.add(active);
     }
+    
+    public ArrayList<String> validDates(){
+        ArrayList<String> dates = new ArrayList<>();
+        for (int i = 0; i < this.ticketsPurchased.size(); ++i){
+            if (!dates.contains(ticketsPurchased.get(i).getSelectedDate())){
+                dates.add(ticketsPurchased.get(i).getSelectedDate());
+            }
+        }
+        return dates;
+    }
 
     /**
      * Get the customerID for person
