@@ -24,6 +24,7 @@ public class UserAccount extends Person {
 
     private boolean ticketHolder;
     private ArrayList<parkTicket> ticketsPurchased;
+    private ArrayList<parkTicket> newTickets;
 
     /**
      * This is the all parameter constructor for User Account extending the
@@ -33,7 +34,7 @@ public class UserAccount extends Person {
      * @param email
      * @param dateOfBirth
      */
-    public UserAccount(String name, String email, String dateOfBirth, int customerID, String username, String password, boolean authentication, ArrayList<Attraction> schedule, ArrayList<Integer> foodOrders, ArrayList<parkTicket> tickets, ArrayList<SitDownReservation> reservations) {
+    public UserAccount(String name, String email, String dateOfBirth, int customerID, String username, String password, boolean authentication, ArrayList<Attraction> schedule, ArrayList<Integer> foodOrders, ArrayList<parkTicket> tickets, ArrayList<SitDownReservation> reservations, ArrayList<parkTicket> newTickets) {
         super(name, email, dateOfBirth);
         this.customerID = customerID;
         this.username = username;
@@ -44,6 +45,7 @@ public class UserAccount extends Person {
         this.ticketsPurchased = tickets;
         this.ticketHolder = false;
         this.reservations = reservations;
+        this.newTickets = newTickets;
     }
 
     public boolean addReservation(String name, String time, String date, int partySize) throws IOException{
@@ -134,8 +136,17 @@ public class UserAccount extends Person {
     }
 
     public void addPurchasedTickets(ArrayList<parkTicket> tickets) {
-        for (int i = 0; i < tickets.size(); ++i) {
-            this.ticketsPurchased.add(tickets.get(i));
+        if (this.newTickets.isEmpty()){
+            for (int i = 0; i < tickets.size(); ++i) {
+                this.ticketsPurchased.add(tickets.get(i));
+                this.newTickets.add(tickets.get(i));
+            }
+        } else {
+            this.newTickets.clear();
+            for (int i = 0; i < tickets.size(); ++i) {
+                this.ticketsPurchased.add(tickets.get(i));
+                this.newTickets.add(tickets.get(i));
+            }
         }
     }
 
@@ -145,6 +156,20 @@ public class UserAccount extends Person {
             tickets.add(new parkTicket(selectedDate));
         }
         addPurchasedTickets(tickets);
+    }
+
+    public StringBuilder viewTicketsList(ArrayList<parkTicket> tickets, int qty){
+        StringBuilder ticketList = new StringBuilder();
+        double total = (qty * 59.99);
+        ticketList.append("This account has ");
+        ticketList.append(qty);
+        ticketList.append(" active tickets, they have been sent to: ");
+        ticketList.append(this.getEmail());
+        for (int i = 0; i < tickets.size(); ++i) {
+            ticketList.append("\n");
+            ticketList.append(tickets.get(i).toString());
+        }
+        return ticketList;
     }
 
     public StringBuilder viewTicketsPurchased(ArrayList<parkTicket> tickets, int qty) {
@@ -294,6 +319,16 @@ public class UserAccount extends Person {
     public void setTicketsPurchased(ArrayList<parkTicket> ticketsPurchased) {
         this.ticketsPurchased = ticketsPurchased;
     }
+
+    public ArrayList<parkTicket> getNewTickets() {
+        return newTickets;
+    }
+
+    public void setNewTickets(ArrayList<parkTicket> newTickets) {
+        this.newTickets = newTickets;
+    }
+    
+    
 
     /**
      * View the instance of the user's account

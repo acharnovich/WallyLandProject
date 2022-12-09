@@ -153,7 +153,7 @@ public class PurchaseTicketController implements ActionListener {
 
                             activeUser.createTicketOrder(validDate, Integer.parseInt(purchView.getQtyTxt().getValue().toString()));
                             purchView.setVisible(false);
-                            JOptionPane.showMessageDialog(null, activeUser.viewTicketsPurchased(activeUser.getTicketsPurchased(), Integer.parseInt(purchView.getQtyTxt().getValue().toString())));  
+                            JOptionPane.showMessageDialog(null, activeUser.viewTicketsPurchased(activeUser.getNewTickets(), Integer.parseInt(purchView.getQtyTxt().getValue().toString())));  
                             JComponent comp = (JComponent) e.getSource();
                             Window win = SwingUtilities.getWindowAncestor(comp);
                             win.dispose();

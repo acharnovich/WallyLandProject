@@ -53,7 +53,7 @@ ProfileList profileList = new ProfileList();
             public void actionPerformed(ActionEvent e) {
                 try {
                     JOptionPane.showMessageDialog(null,
-                            activeUser.viewTicketsPurchased(activeUser.getTicketsPurchased(), activeUser.getTicketsPurchased().size()));
+                            activeUser.viewTicketsList(activeUser.getTicketsPurchased(), activeUser.getTicketsPurchased().size()));
                 } catch (Exception ex) {
                     Logger.getLogger(UserActionController.class.getName()).log(Level.SEVERE, null, ex);
                 }}});} 
