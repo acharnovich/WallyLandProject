@@ -45,9 +45,7 @@ public class ReservationController {
     public ReservationController(NavigationView navView, UserAccount activeUser) throws IOException {
         SitDownFoodVendorList vendorList = new SitDownFoodVendorList();
         this.activeUser = activeUser;
-        ReservationView reserveView = new ReservationView(vendorList.getVendors());
-        //navView.getContentPane().remove(navView.getMainPanel());
-        //  navView.getContentPane().add(reserveView);
+        ReservationView reserveView = new ReservationView(vendorList.getVendors(), activeUser.validDates());
         navView.getMainPanel().removeAll();
         navView.getMainPanel().add(reserveView);
         navView.getMainPanel().repaint();
@@ -165,30 +163,13 @@ public class ReservationController {
                 new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (reserveView.getRestTbl().getSelectedRow() < 0 || reserveView.getTimeBox().getSelectedItem().equals(null) || reserveView.getReserveDateTxt().getDate()==null) {
+                if (reserveView.getRestTbl().getSelectedRow() < 0 || reserveView.getTimeBox().getSelectedItem().equals(null) || reserveView.getDateBox().getSelectedItem().equals(null)) {
                     JOptionPane.showMessageDialog(null, "Please make sure a reservation, time, and date is selected.", "Error", JOptionPane.ERROR_MESSAGE);
                 } else {
-                    String dateFormat = reserveView.getReserveDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy"));
-
-                    if (validateDate(dateFormat) == false) {
-                        JOptionPane.showMessageDialog(reserveView,
-                                "Invalid Date Format. Please enter date as "
-                                + "\n MM / DD / YY", "Date Format Mismatch",
-                                JOptionPane.ERROR_MESSAGE);
-                    } else {
-                        LocalDate today = LocalDate.now();
-                        LocalDate enteredDate = reserveView.getReserveDateTxt().getDate();
-                        if (enteredDate.isBefore(today)) {
-                            JOptionPane.showMessageDialog(reserveView,
-                                    "Please select today's date or a future date",
-                                     "Invalid Date",
-                                    JOptionPane.ERROR_MESSAGE);
-                        }
-                        else{
                         try {
                              if((int) reserveView.getRestSpinner().getValue() <= activeUser.getTicketsPurchased().size()){
-                            activeUser.addReservation(reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).toString(), reserveView.getTimeBox().getSelectedItem().toString(), reserveView.getReserveDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy")), (int) reserveView.getRestSpinner().getValue());
-                            JOptionPane.showMessageDialog(null, "This reservation was scheduled successfully. You have added \n" + reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).toString() + " to your schedule for a party of " + reserveView.getRestSpinner().getValue() + " at " + reserveView.getTimeBox().getSelectedItem().toString() + " of " + reserveView.getReserveDateTxt().getDate().format(DateTimeFormatter.ofPattern("MM/dd/yy")), "Reservation Scheduled!", JOptionPane.PLAIN_MESSAGE);
+                            activeUser.addReservation(reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).toString(), reserveView.getTimeBox().getSelectedItem().toString(), reserveView.getDateBox().getSelectedItem().toString(), (int) reserveView.getRestSpinner().getValue());
+                            JOptionPane.showMessageDialog(null, "This reservation was scheduled successfully. You have added \n" + reserveView.getRestTbl().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).toString() + " to your schedule for a party of " + reserveView.getRestSpinner().getValue() + " at " + reserveView.getTimeBox().getSelectedItem().toString() + " of " + reserveView.getDateBox().getSelectedItem().toString(), "Reservation Scheduled!", JOptionPane.PLAIN_MESSAGE);
                             reserveView.setVisible(false);
                             JComponent comp = (JComponent) e.getSource();
                             Window win = SwingUtilities.getWindowAncestor(comp);
@@ -203,8 +184,8 @@ public class ReservationController {
                         }}
 
                     }
-                }
-            }
+                
+            
         }
         );
 

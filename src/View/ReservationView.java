@@ -26,9 +26,9 @@ public class ReservationView extends javax.swing.JPanel {
     /**
      * Creates new form ReservationView
      */
-    public ReservationView(ArrayList<SitDownFoodVendor> restList) {
+    public ReservationView(ArrayList<SitDownFoodVendor> restList, ArrayList<String> dateList) {
         initComponents();
-    
+        populateDateBox(dateList);
         populateTable(restList);
     }
 
@@ -45,6 +45,11 @@ public class ReservationView extends javax.swing.JPanel {
         }
 
     }
+    
+    public void populateDateBox(ArrayList<String> dateList){
+    
+    dateBox.setModel(new DefaultComboBoxModel<>(dateList.toArray(new String[dateList.size()])));
+    }
 
     public void populateComboBox(SitDownFoodVendor selectedRest) {
         timeBox.setModel(new DefaultComboBoxModel<>(selectedRest.getReservationTimes().toArray(new String[selectedRest.getReservationTimes().size()])));
@@ -60,7 +65,6 @@ public class ReservationView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        reserveDateTxt = new com.github.lgooddatepicker.components.DatePicker();
         jScrollPane3 = new javax.swing.JScrollPane();
         restTbl = new javax.swing.JTable();
         timeBox = new javax.swing.JComboBox<>();
@@ -70,9 +74,9 @@ public class ReservationView extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        dateBox = new javax.swing.JComboBox<>();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        add(reserveDateTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 520, 170, 40));
 
         restTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -132,6 +136,14 @@ public class ReservationView extends javax.swing.JPanel {
 
         jLabel3.setText("Party Size:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 530, -1, -1));
+
+        dateBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        dateBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dateBoxActionPerformed(evt);
+            }
+        });
+        add(dateBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 520, -1, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void timeBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeBoxActionPerformed
@@ -146,15 +158,19 @@ public class ReservationView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_reserveBtnActionPerformed
 
+    private void dateBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dateBoxActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> dateBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton menuBtn;
     private javax.swing.JButton reserveBtn;
-    private com.github.lgooddatepicker.components.DatePicker reserveDateTxt;
     private javax.swing.JSpinner restSpinner;
     private javax.swing.JTable restTbl;
     private javax.swing.JComboBox<String> timeBox;
@@ -192,13 +208,15 @@ public class ReservationView extends javax.swing.JPanel {
         this.reserveBtn = reserveBtn;
     }
 
-    public DatePicker getReserveDateTxt() {
-        return reserveDateTxt;
+    public JComboBox<String> getDateBox() {
+        return dateBox;
     }
 
-    public void setReserveDateTxt(DatePicker reserveDateTxt) {
-        this.reserveDateTxt = reserveDateTxt;
+    public void setDateBox(JComboBox<String> dateBox) {
+        this.dateBox = dateBox;
     }
+
+
 
     public JTable getRestTbl() {
         return restTbl;
