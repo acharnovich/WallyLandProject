@@ -128,7 +128,7 @@ public class ReservationView extends javax.swing.JPanel {
         restSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 10, 1));
         add(restSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 520, -1, 40));
 
-        jLabel1.setText("Date:");
+        jLabel1.setText("Dates Available:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 530, -1, -1));
 
         jLabel2.setText("Time:");
@@ -143,7 +143,7 @@ public class ReservationView extends javax.swing.JPanel {
                 dateBoxActionPerformed(evt);
             }
         });
-        add(dateBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 520, -1, 40));
+        add(dateBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 520, -1, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void timeBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeBoxActionPerformed
