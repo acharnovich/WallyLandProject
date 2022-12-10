@@ -76,7 +76,7 @@ public class ReservationController {
         reserveView.getRestTbl().addMouseListener(new MouseAdapter() {
 
             @Override
-            public void mouseClicked(MouseEvent e) {
+            public void mouseReleased(MouseEvent e) {
                 SitDownFoodVendor restNameTemp = new SitDownFoodVendor();
                 for (int i = 0; i < vendorList.getVendors().size(); i++) {
                     if (reserveView.getRestTbl().getModel().getValueAt(reserveView.getRestTbl().getSelectedRow(), 0).equals(vendorList.getVendors().get(i).getName())) {
