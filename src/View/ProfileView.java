@@ -55,7 +55,7 @@ public class ProfileView extends javax.swing.JPanel {
             rowData[0] = schResList.get(i).getScheduledVendor().getName();
             rowData[1] = schResList.get(i).getScheduledVendor().getLocation();
             rowData[2] = schResList.get(i).getTime();
-            
+            rowData[3] = schResList.get(i).getDate();
             model.addRow(rowData);
        }
      
@@ -116,20 +116,21 @@ public class ProfileView extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Name", "Location", "Time"
+                "Name", "Location", "Time", "Date"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        reservationScheduleTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(reservationScheduleTable);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(501, 193, 417, 331));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 470, 331));
 
         userDOB.setText("jLabel3");
         add(userDOB, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 130, -1, -1));
@@ -138,7 +139,7 @@ public class ProfileView extends javax.swing.JPanel {
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 171, -1, -1));
 
         jLabel5.setText("Reservations");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(682, 171, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 170, -1, -1));
 
         viewTicketButton.setText("View Ticket");
         viewTicketButton.addActionListener(new java.awt.event.ActionListener() {
