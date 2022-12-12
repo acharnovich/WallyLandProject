@@ -107,6 +107,9 @@ public class ProfileView extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        attractionScheduleTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        attractionScheduleTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        attractionScheduleTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(attractionScheduleTable);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 193, 417, 331));
